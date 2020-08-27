@@ -6,13 +6,116 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
+        android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="6dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="WELCOME"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+
+    <TableRow
+        android:id="@+id/hr1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#444"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+
+    <TextView
+        android:id="@+id/selectingLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="23dp"
+        android:text="Select The Language"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/hr1"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <TableRow
+        android:id="@+id/hr2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#444"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hr2">
+
+        <RadioButton
+            android:id="@+id/Hindi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="23dp"
+            android:paddingVertical="15dp"
+            android:textSize="23sp"
+            android:text="Hindi"
+            android:layoutDirection="rtl"
+            android:buttonTint="@color/colorPrimary"/>
+        <TableRow
+            android:id="@+id/hr3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#444"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
+
+        <RadioButton
+            android:id="@+id/English"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="23dp"
+            android:paddingVertical="15dp"
+            android:textSize="23sp"
+            android:text="Engish"
+            android:checked="true"
+            android:layoutDirection="rtl"
+            android:buttonTint="@color/colorPrimary"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:text="Get Start"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:width="300dp"
+        android:background="@drawable/btn_rounded"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
