@@ -78,6 +78,7 @@
             android:src="@drawable/user_icon"></ImageView>
 
         <EditText
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -110,7 +111,7 @@
             android:src="@drawable/password_icon"></ImageView>
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -155,7 +156,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/startBtn"
+        android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
