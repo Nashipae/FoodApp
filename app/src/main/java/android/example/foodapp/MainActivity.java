@@ -1,4 +1,4 @@
-package com.example.agricultureapp;
+package android.example.foodapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
