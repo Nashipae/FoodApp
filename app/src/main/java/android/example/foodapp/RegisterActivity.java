@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -80,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                     else if(password.isEmpty())Toast.makeText(RegisterActivity.this,"Password field cannot be empty",Toast.LENGTH_SHORT).show();
                     else if(passwordConfirm.isEmpty())Toast.makeText(RegisterActivity.this,"Please confirm password",Toast.LENGTH_SHORT).show();
                     else if(!(password.equals(passwordConfirm)))Toast.makeText(RegisterActivity.this,"Passwords do not match",Toast.LENGTH_SHORT).show();
+                    else if((password.length()<8  || !isValidPassword(password)))Toast.makeText(RegisterActivity.this,"Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character,",Toast.LENGTH_LONG).show();
                     else {
                         Users userData = new Users(username,password,phone,city,pin);
 //                        Map<String,Object> userMap = userData.toMap();
@@ -105,5 +108,16 @@ public class RegisterActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+    }
+
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+        return matcher.matches();
+
     }
 }
