@@ -25,7 +25,7 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="WELCOME"
         android:textColor="#000000"
-        android:textSize="40sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -43,17 +43,36 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
 
-    <TextView
+    <LinearLayout
         android:id="@+id/selectingLanguage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center_vertical"
-        android:paddingLeft="23dp"
-        android:text="Select The Language"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/hr1"
-        tools:layout_editor_absoluteX="28dp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/hr1">
+
+        <TextView
+
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="23dp"
+            android:text="Select The Language"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/hr1"
+            tools:layout_editor_absoluteX="28dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/language"
+            ></ImageView>
+
+
+    </LinearLayout>
+
+
 
     <TableRow
         android:id="@+id/hr2"
@@ -65,6 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,12 +95,13 @@
             android:id="@+id/Hindi"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="23dp"
-            android:paddingVertical="15dp"
-            android:textSize="23sp"
-            android:text="Hindi"
+            android:buttonTint="@color/colorPrimary"
             android:layoutDirection="rtl"
-            android:buttonTint="@color/colorPrimary"/>
+            android:paddingVertical="12dp"
+            android:paddingLeft="23dp"
+            android:text="Hindi"
+            android:textSize="23sp" />
+
         <TableRow
             android:id="@+id/hr3"
             android:layout_width="match_parent"
@@ -94,30 +115,31 @@
             android:id="@+id/English"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="23dp"
-            android:paddingVertical="15dp"
-            android:textSize="23sp"
-            android:text="Engish"
+            android:buttonTint="@color/colorPrimary"
             android:checked="true"
             android:layoutDirection="rtl"
-            android:buttonTint="@color/colorPrimary"/>
+            android:paddingVertical="12dp"
+            android:paddingLeft="23dp"
+            android:text="Engish"
+            android:textSize="23sp" />
     </RadioGroup>
 
     <Button
         android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:text="Get Start"
-        android:textSize="30dp"
-        android:textColor="#ffffff"
+        android:layout_marginBottom="30dp"
         android:width="300dp"
         android:background="@drawable/btn_rounded"
+        android:text="Get Start"
         android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

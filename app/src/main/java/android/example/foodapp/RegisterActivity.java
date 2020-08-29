@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.example.foodapp.Model.Users;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +27,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
 
 
-    private Button signinBtn,doneBtn;
+    private Button signinBtn,doneBtn,showHideBtnRegEnter,showHideBtnRegConfirm;
     private EditText inputUsername,inputPhone,inputCity,inputPin,inputPassword,inputPasswordConfirm;
     private String dbname = "Users";
     @Override
@@ -41,6 +43,38 @@ public class RegisterActivity extends AppCompatActivity {
         inputPin = findViewById(R.id.pincode);
         inputPassword = findViewById(R.id.password);
         inputPasswordConfirm = findViewById(R.id.passwordConfirm);
+
+        showHideBtnRegEnter = (Button) findViewById(R.id.showHideBtnRegEnter);
+        showHideBtnRegConfirm = (Button) findViewById(R.id.showHideBtnRegConfirm);
+
+        showHideBtnRegEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(showHideBtnRegEnter.getText().equals("SHOW")){
+                    inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showHideBtnRegEnter.setText("HIDE");
+                    showHideBtnRegEnter.setTextSize(13);
+                }else if (showHideBtnRegEnter.getText().equals("HIDE")){
+                    showHideBtnRegEnter.setText("SHOW");
+                    inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
+
+        showHideBtnRegConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(showHideBtnRegConfirm.getText().equals("SHOW")){
+                    inputPasswordConfirm.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showHideBtnRegConfirm.setText("HIDE");
+                    showHideBtnRegConfirm.setTextSize(13);
+                }else if (showHideBtnRegConfirm.getText().equals("HIDE")){
+                    showHideBtnRegConfirm.setText("SHOW");
+                    inputPasswordConfirm.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
+
 
         signinBtn.setOnClickListener(new View.OnClickListener(){
             @Override

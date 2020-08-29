@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.example.foodapp.Model.Users;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button loginBtn,registerBtn; /*register button added*/
+    private Button loginBtn,registerBtn,signupBtn,showHideBtn; /*register button added*/
     private EditText inputUsername,inputPassword;
     private String dbname = "Users";
     @Override
@@ -27,13 +30,36 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loginBtn = (Button) findViewById(R.id.loginBtn);
         registerBtn = (Button) findViewById(R.id.registerBtn); /*changes */
+        signupBtn = (Button) findViewById(R.id.signupBtn);
+        showHideBtn= (Button) findViewById(R.id.showHideBtn);
         inputUsername = (EditText) findViewById(R.id.username);
         inputPassword = (EditText) findViewById(R.id.password);
 //        changing activity on clicking register Button
+        showHideBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(showHideBtn.getText().equals("SHOW")){
+                    inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showHideBtn.setText("HIDE");
+                    showHideBtn.setTextSize(13);
+                }else if (showHideBtn.getText().equals("HIDE")){
+                    showHideBtn.setText("SHOW");
+                    inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
         registerBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        signupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
