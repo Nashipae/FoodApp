@@ -124,6 +124,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
                 tools:layout_editor_absoluteX="10dp">
 
+<<<<<<< HEAD
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -198,6 +199,19 @@
                         android:textStyle="bold"></Button>
                 </RelativeLayout>
             </LinearLayout>
+=======
+            <CheckBox
+                android:id="@+id/save_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
+                android:gravity="center_vertical"
+                android:text="Remember me"
+                android:textColor="@color/colorAccent"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+>>>>>>> fba541d7c24fe73d2470e320a83c061cdeeb2169
 
             <Button
                 android:id="@+id/loginBtn"
