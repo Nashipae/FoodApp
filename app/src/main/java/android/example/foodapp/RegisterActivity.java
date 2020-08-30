@@ -101,7 +101,24 @@ public class RegisterActivity extends AppCompatActivity {
         final String password = inputPassword.getText().toString();
         final String passwordConfirm = inputPasswordConfirm.getText().toString();
         final String phone = inputPhone.getText().toString();
-        final DatabaseReference RootRef;
+        final DatabaseReference RootRef,connectedRef;
+
+        connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+        connectedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean connected = snapshot.getValue(Boolean.class);
+                if (!connected){
+                    Toast.makeText(RegisterActivity.this, "Connection failed. Recheck connectivity",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+        });
+
         RootRef = FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -111,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     if(username.isEmpty())Toast.makeText(RegisterActivity.this,"Username cannot be empty",Toast.LENGTH_SHORT).show();
+                    else if(phone.length()!=10)Toast.makeText(RegisterActivity.this,"Phone number must be exactly 10 digits",Toast.LENGTH_SHORT).show();
                     else if(city.isEmpty())Toast.makeText(RegisterActivity.this,"City field cannot be empty",Toast.LENGTH_SHORT).show();
                     else if(pin.isEmpty())Toast.makeText(RegisterActivity.this,"Postal Code field cannot be empty",Toast.LENGTH_SHORT).show();
                     else if(password.isEmpty())Toast.makeText(RegisterActivity.this,"Password field cannot be empty",Toast.LENGTH_SHORT).show();
@@ -120,7 +138,7 @@ public class RegisterActivity extends AppCompatActivity {
                     else {
                         Users userData = new Users(username,password,phone,city,pin);
 //                        Map<String,Object> userMap = userData.toMap();
-                        RootRef.child(dbname).child(username).setValue(userData)
+                        RootRef.child(dbname).child(phone).setValue(userData)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

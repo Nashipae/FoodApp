@@ -99,12 +99,12 @@
                     android:src="@drawable/user"></ImageView>
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:background="@null"
-                    android:hint="Enter your name"
+                    android:hint="Enter your mobile number"
                     android:padding="5dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="20sp">
