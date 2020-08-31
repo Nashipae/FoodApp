@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 public class RegisterActivity extends AppCompatActivity {
 
 
-    private Button signinBtn,doneBtn,showHideBtnRegEnter,showHideBtnRegConfirm;
+    private Button doneBtn,showHideBtnRegEnter,showHideBtnRegConfirm;
     private EditText inputUsername,inputPhone,inputCity,inputPin,inputPassword,inputPasswordConfirm;
     private String dbname = "Users";
     @Override
@@ -37,7 +37,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        signinBtn =(Button) findViewById((R.id.signIn));
         doneBtn = (Button) findViewById(R.id.doneBtn);
         inputUsername = findViewById(R.id.username);
         inputPhone = findViewById(R.id.phone);
@@ -77,14 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
-        signinBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
 
         doneBtn.setOnClickListener(new View.OnClickListener(){
             @Override

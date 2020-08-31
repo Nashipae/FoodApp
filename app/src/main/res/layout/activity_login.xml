@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:paddingVertical="5dp"
                     android:background="@drawable/bottom_underline"
-                    android:text="Sign In"
+                    android:text="Sign in"
                     android:textAllCaps="false"
                     android:textColor="@color/colorPrimary"
                     android:textSize="22dp"
@@ -60,22 +60,7 @@
                     android:minWidth="0dp"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <Button
-                    android:id="@+id/registerBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingVertical="5dp"
-                    android:background="@drawable/bottom_underline_gray"
-                    android:text="Register"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="22dp"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -187,6 +172,7 @@
                         android:textStyle="bold"></CheckBox>
 
                     <Button
+                        android:id="@+id/forgotPassword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

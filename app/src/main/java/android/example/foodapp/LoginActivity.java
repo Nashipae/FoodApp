@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 
 
 public class LoginActivity extends AppCompatActivity {
-    private Button loginBtn,registerBtn,signupBtn,showHideBtn; /*register button added*/
+    private Button loginBtn,signupBtn,showHideBtn,forgotPassword; /*register button added*/
     private EditText inputUsername,inputPassword;
     private CheckBox saved_preferences;
     private SharedPreferences.Editor loginPrefsEditor;
@@ -45,12 +45,12 @@ public class LoginActivity extends AppCompatActivity {
         saved_preferences = (CheckBox) findViewById(R.id.save_login);
         saved_preferences.setChecked(true);
         loginBtn = (Button) findViewById(R.id.loginBtn);
-        registerBtn = (Button) findViewById(R.id.registerBtn); /*changes */
         signupBtn = (Button) findViewById(R.id.signupBtn);
-        showHideBtn= (Button) findViewById(R.id.showHideBtn);
+        showHideBtn = (Button) findViewById(R.id.showHideBtn);
         inputUsername = (EditText) findViewById(R.id.phone);
+        forgotPassword = (Button) findViewById(R.id.forgotPassword);
         inputPassword = (EditText) findViewById(R.id.password);
-        loginPreferences = getSharedPreferences(PREFS_NAME,0);
+        loginPreferences = getSharedPreferences(PREFS_NAME, 0);
         loginPrefsEditor = loginPreferences.edit();
         String saved_username = loginPreferences.getString(PREF_USERNAME, null);
         String saved_password = loginPreferences.getString(PREF_PASSWORD, null);
@@ -58,28 +58,30 @@ public class LoginActivity extends AppCompatActivity {
             inputUsername.setText(saved_username);
             inputPassword.setText(saved_password);
         }
+
+//        forgot password
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LoginActivity.this,ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 //        changing activity on clicking register Button
         showHideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(showHideBtn.getText().equals("SHOW")){
+                if (showHideBtn.getText().equals("SHOW")) {
                     inputPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     showHideBtn.setText("HIDE");
                     showHideBtn.setTextSize(13);
-                }else if (showHideBtn.getText().equals("HIDE")){
+                } else if (showHideBtn.getText().equals("HIDE")) {
                     showHideBtn.setText("SHOW");
                     inputPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
             }
         });
 
-        registerBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,9 +91,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginBtn.setOnClickListener(new View.OnClickListener(){
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 LoginUser();
             }
         });
