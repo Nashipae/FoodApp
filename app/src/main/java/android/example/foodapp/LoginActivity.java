@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         saved_preferences = (CheckBox) findViewById(R.id.save_login);
+        saved_preferences.setChecked(true);
         loginBtn = (Button) findViewById(R.id.loginBtn);
         registerBtn = (Button) findViewById(R.id.registerBtn); /*changes */
         signupBtn = (Button) findViewById(R.id.signupBtn);
@@ -97,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void LoginUser() {
-        final DatabaseReference RootRef,connectedRef;
+        final DatabaseReference RootRef;
         final String username = inputUsername.getText().toString();
         final String password = inputPassword.getText().toString();
 
@@ -114,32 +115,35 @@ public class LoginActivity extends AppCompatActivity {
                     .apply();
         }
 
-        // connection to database
-        connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
-        connectedRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                boolean connected = snapshot.getValue(Boolean.class);
-                if (!connected){
-                    Toast.makeText(LoginActivity.this, "Connection failed. Recheck connectivity",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                throw error.toException();
-            }
-        });
-
         RootRef = FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                final DatabaseReference connectedRef;
+                // connection to database
+                connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+                connectedRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        boolean connected = snapshot.getValue(Boolean.class);
+                        if (!connected){
+                            Toast.makeText(LoginActivity.this, "Connection failed. Recheck connectivity",Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        throw error.toException();
+                    }
+                });
 
                 if(snapshot.child(dbname).child(username).exists()) {
                     Users usersData = snapshot.child(dbname).child(username).getValue(Users.class);
                     if(usersData.getPassword().equals(password)){
                         Toast.makeText(LoginActivity.this, "Successful Login",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getBaseContext(),UserProfileActivity.class);
+                        intent.putExtra("Userphone",username);
+                        startActivity(intent);
                     }
                     else {
                         Toast.makeText(LoginActivity.this, "Incorrect Password",Toast.LENGTH_SHORT).show();
@@ -154,11 +158,5 @@ public class LoginActivity extends AppCompatActivity {
                 throw error.toException();
             }
         });
-    }
-
-    private void checkConnection() {
-        DatabaseReference presenceRef = FirebaseDatabase.getInstance().getReference("disconnectmessage");
-        // Write a string when this client loses connection
-        presenceRef.onDisconnect().setValue("I disconnected!");
     }
 }
