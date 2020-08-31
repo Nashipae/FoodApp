@@ -67,7 +67,7 @@
 
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/otp1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -79,10 +79,11 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:paddingTop="2dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:maxLength="1" />
 
                 <EditText
-                    android:id="@+id/editTextNumber2"
+                    android:id="@+id/otp2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -94,10 +95,11 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:paddingTop="2dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:maxLength="1"/>
 
                 <EditText
-                    android:id="@+id/editTextNumber3"
+                    android:id="@+id/otp3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -109,10 +111,11 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:paddingTop="2dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:maxLength="1"/>
 
                 <EditText
-                    android:id="@+id/editTextNumber4"
+                    android:id="@+id/otp4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -124,7 +127,8 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:paddingTop="2dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:maxLength="1"/>
             </LinearLayout>
 
             <Button
