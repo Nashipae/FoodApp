@@ -6,140 +6,162 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="160dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="WELCOME"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
-
-    <TableRow
-        android:id="@+id/hr1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#445"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+        android:layout_height="match_parent">
 
-
-    <LinearLayout
-        android:id="@+id/selectingLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/hr1">
-
-        <TextView
-
-            android:layout_width="360dp"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="23dp"
-            android:text="Select The Language"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/hr1"
-            tools:layout_editor_absoluteX="28dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/language"
-            ></ImageView>
-
-
-    </LinearLayout>
-
-
-
-    <TableRow
-        android:id="@+id/hr2"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#444"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hr2">
-
-        <RadioButton
-            android:id="@+id/Hindi"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:buttonTint="@color/colorPrimary"
-            android:layoutDirection="rtl"
-            android:paddingVertical="12dp"
-            android:paddingLeft="23dp"
-            android:text="Hindi"
-            android:textSize="23sp" />
-
-        <TableRow
-            android:id="@+id/hr3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#444"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/English"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:buttonTint="@color/colorPrimary"
-            android:checked="true"
-            android:layoutDirection="rtl"
-            android:paddingVertical="12dp"
-            android:paddingLeft="23dp"
-            android:text="Engish"
-            android:textSize="23sp" />
-    </RadioGroup>
+            <ImageView
+                android:id="@+id/app_logo"
+                android:layout_width="160dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/startBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="180dp"
-        android:width="300dp"
-        android:background="@drawable/btn_rounded"
-        android:text="Get Started"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="WELCOME"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+
+            <TableRow
+                android:id="@+id/hr1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#445"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+
+
+            <LinearLayout
+                android:id="@+id/selectingLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/hr1">
+
+                <TextView
+
+                    android:layout_width="360dp"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="23dp"
+                    android:text="Select The Language"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/hr1"
+                    tools:layout_editor_absoluteX="28dp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/language"
+                    ></ImageView>
+
+
+            </LinearLayout>
+
+
+
+            <TableRow
+                android:id="@+id/hr2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#444"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hr2">
+
+                <RadioButton
+                    android:id="@+id/Hindi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/colorPrimary"
+                    android:layoutDirection="rtl"
+                    android:paddingVertical="12dp"
+                    android:paddingLeft="23dp"
+                    android:text="Hindi"
+                    android:textSize="23sp" />
+
+                <TableRow
+                    android:id="@+id/hr3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#444"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
+
+                <RadioButton
+                    android:id="@+id/English"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:paddingVertical="12dp"
+                    android:paddingLeft="23dp"
+                    android:text="Engish"
+                    android:textSize="23sp" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/startBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="300dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/btn_rounded"
+                android:text="Get Started"
+                android:layout_gravity="center_horizontal"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
