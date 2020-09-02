@@ -39,7 +39,7 @@ public class UserProfileActivity extends AppCompatActivity {
         username = this.<EditText>findViewById(R.id.username);
         phone = this.<EditText>findViewById(R.id.phone);
         pincode = this.<EditText>findViewById(R.id.pincode);
-        city     = this.<EditText>findViewById(R.id.city);
+        city   = this.<EditText>findViewById(R.id.city);
         new_password = this.<EditText>findViewById(R.id.new_password);
         new_password_confirm = this.<EditText>findViewById(R.id.new_password_confirm);
         user_key = getIntent().getStringExtra("Userphone");
