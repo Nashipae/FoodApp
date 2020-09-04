@@ -5,16 +5,40 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/dashboardicon"
+            android:iconTint="#FFFFFF"
+            android:title="Dashboard" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_language"
+            android:icon="@drawable/language_nav"
+            android:iconTint="#FFFFFF"
+            android:title="Language" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_history"
+            android:icon="@drawable/delivery_history"
+            android:iconTint="#FFFFFF"
+            android:title="Delivery History" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/share_with_friends"
+            android:iconTint="#FFFFFF"
+            android:title="Share With Friends" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/contact_us"
+            android:iconTint="#FFFFFF"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/rate_us"
+            android:iconTint="#FFFFFF"
+            android:title="Rate Us" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:iconTint="#FFFFFF"
+            android:title="Log out" />
     </group>
+
 </menu>
