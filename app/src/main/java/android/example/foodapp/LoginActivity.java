@@ -143,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
                     Users usersData = snapshot.child(dbname).child(username).getValue(Users.class);
                     if(usersData.getPassword().equals(password)){
                         Toast.makeText(LoginActivity.this, "Successful Login",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getBaseContext(),UserProfileActivity.class);
+                        Intent intent = new Intent(getBaseContext(),HomeActivity.class);
                         intent.putExtra("Userphone",username);
                         startActivity(intent);
                     }
