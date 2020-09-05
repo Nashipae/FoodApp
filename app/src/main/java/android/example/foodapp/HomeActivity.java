@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true);
         productRecyclerView.setLayoutManager(layoutManager);
 
 
