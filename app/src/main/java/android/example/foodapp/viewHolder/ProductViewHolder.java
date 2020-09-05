@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public ImageView prodImage;
+//    public ImageView prodImage;
     public TextView prodDesc, prodName, prodPrice;
     public ItemClickListener listener;
 
     public ProductViewHolder(@NonNull View itemView) {
         super(itemView);
-        prodImage = (ImageView) itemView.findViewById(R.id.prodImage);
+//        prodImage = (ImageView) itemView.findViewById(R.id.prodImage);
         prodDesc = (TextView) itemView.findViewById(R.id.prodDesc);
 //        prodName = (ImageView) itemView.findViewById(R.id.prodName);
         prodPrice = (TextView) itemView.findViewById(R.id.prodPrice);

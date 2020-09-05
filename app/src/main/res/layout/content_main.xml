@@ -64,12 +64,9 @@
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/itemScroll"
+            android:id="@+id/productRecyclerView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
+            android:layout_height="wrap_content">
 
             <!--            <LinearLayout-->
             <!--                android:layout_width="wrap_content"-->

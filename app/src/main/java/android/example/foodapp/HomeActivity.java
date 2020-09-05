@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -32,8 +31,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private DatabaseReference ProductRef;
-    private RecyclerView itemScroll;
-    private LinearLayoutManager layoutManager;
+    private RecyclerView productRecyclerView;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +41,10 @@ public class HomeActivity extends AppCompatActivity {
 
 
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
-        itemScroll = (RecyclerView) findViewById(R.id.itemScroll);
-        itemScroll.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,true);
-        itemScroll.setLayoutManager(layoutManager);
+        productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
+        productRecyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        productRecyclerView.setLayoutManager(layoutManager);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
@@ -100,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
-                        holder.prodName.setText(model.getProd_name());
+//                        holder.prodName.setText(model.getProd_name());
                         holder.prodPrice.setText(model.getProd_price());
                         holder.prodDesc.setText(model.getProd_desc());
 
@@ -115,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 };
 
-        itemScroll.setAdapter(adapter);
+        productRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
 }
