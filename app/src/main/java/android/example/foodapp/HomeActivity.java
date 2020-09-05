@@ -32,6 +32,9 @@ public class HomeActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private DatabaseReference ProductRef;
     private RecyclerView productRecyclerView;
+    private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
+    private FirebaseRecyclerOptions<Products> options;
+
     RecyclerView.LayoutManager layoutManager;
 
     @Override
@@ -39,17 +42,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
-        productRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         productRecyclerView.setLayoutManager(layoutManager);
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
-
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -62,8 +64,6 @@ public class HomeActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
@@ -90,31 +90,34 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerOptions<Products> options =
-                new FirebaseRecyclerOptions.Builder<Products>()
-                        .setQuery(ProductRef,Products.class)
-                        .build();
+        options = new FirebaseRecyclerOptions.Builder<Products>()
+                .setQuery(ProductRef,Products.class)
+                .build();
 
-        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
-                    @Override
-                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
-//                        holder.prodName.setText(model.getProd_name());
-                        holder.prodPrice.setText(model.getProd_price());
-                        holder.prodDesc.setText(model.getProd_desc());
+        adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
+                holder.prodPrice.setText(model.getProd_price());
+                holder.prodDesc.setText(model.getProd_desc());
+            }
 
-                    }
-
-                    @NonNull
-                    @Override
-                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout,parent,false);
-                        ProductViewHolder holder = new ProductViewHolder(view);
-                        return holder;
-                    }
-                };
-
+            @NonNull
+            @Override
+            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout,parent,false);
+                ProductViewHolder holder = new ProductViewHolder(view);
+                return holder;
+            }
+        };
         productRecyclerView.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(adapter != null) {
+            adapter.stopListening();
+        }
     }
 }
