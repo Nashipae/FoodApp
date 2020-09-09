@@ -1,8 +1,10 @@
 package android.example.foodapp;
 
+import android.content.Intent;
 import android.example.foodapp.Model.Products;
 import android.example.foodapp.viewHolder.ProductViewHolder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
@@ -96,9 +98,19 @@ public class HomeActivity extends AppCompatActivity {
 
         adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
                 holder.prodPrice.setText(model.getProd_price());
                 holder.prodDesc.setText(model.getProd_desc());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent  = new Intent(HomeActivity.this, ProductDescriptionActivity.class);
+                        intent.putExtra("pid",model.getProd_id());
+                        Log.d("myAnalysis", "onClick() returned: " + model.getProd_id());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull
