@@ -121,23 +121,6 @@ public class LoginActivity extends AppCompatActivity {
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                final DatabaseReference connectedRef;
-                // connection to database
-                connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
-                connectedRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        boolean connected = snapshot.getValue(Boolean.class);
-                        if (!connected){
-                            Toast.makeText(LoginActivity.this, "Connection failed. Recheck connectivity",Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        throw error.toException();
-                    }
-                });
 
                 if(snapshot.child(dbname).child(username).exists()) {
                     Users usersData = snapshot.child(dbname).child(username).getValue(Users.class);

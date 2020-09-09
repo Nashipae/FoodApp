@@ -2,21 +2,29 @@ package android.example.foodapp;
 
 import android.content.Intent;
 import android.example.foodapp.Model.Products;
+import android.example.foodapp.Model.Users;
 import android.example.foodapp.viewHolder.ProductViewHolder;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.firebase.ui.auth.data.model.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -31,11 +39,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private TextView txtUserName, txtUserPhone;
+    private Menu menu;
     private AppBarConfiguration mAppBarConfiguration;
     private DatabaseReference ProductRef;
+    private DatabaseReference UsersRef;
     private RecyclerView productRecyclerView;
     private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
     private FirebaseRecyclerOptions<Products> options;
+    private String userphone;
+    private Users user;
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -48,7 +61,8 @@ public class HomeActivity extends AppCompatActivity {
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true);
         productRecyclerView.setLayoutManager(layoutManager);
-
+        userphone = getIntent().getStringExtra("Userphone");
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -73,6 +87,22 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        menu = navigationView.getMenu();
+
+        // adding info about user in the navigation bar
+        UsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.child(userphone).exists()){
+                    user = snapshot.child(userphone).getValue(Users.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
