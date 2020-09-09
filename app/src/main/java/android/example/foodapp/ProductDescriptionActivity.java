@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.example.foodapp.Model.Products;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import static java.lang.Integer.parseInt;
 
 public class ProductDescriptionActivity extends AppCompatActivity {
 
@@ -42,6 +45,20 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         Log.d("myAnalysis", "onCreate: " + pid);
 
         getProductDetails();
+        increaseQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quantity.setText(String.valueOf(parseInt(quantity.getText().toString())+1));
+            }
+        });
+
+        decreaseQuantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int present = parseInt(quantity.getText().toString());
+                if(present>1) quantity.setText(String.valueOf(present-1));
+            }
+        });
 
     }
 
