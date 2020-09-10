@@ -201,6 +201,8 @@
                 android:width="300dp"
                 android:background="@drawable/btn_rounded"
                 android:text="Next"
+                android:drawableRight="@drawable/login_btn_arrow"
+                android:paddingLeft="35dp"
                 android:textAllCaps="false"
                 android:fontFamily="@font/poppins_bold"
                 android:textColor="#ffffff"
