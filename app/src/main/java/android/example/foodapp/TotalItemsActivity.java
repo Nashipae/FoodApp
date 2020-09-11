@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.example.foodapp.Model.Cart;
 import android.example.foodapp.viewHolder.CartViewHolder;
 import android.os.Bundle;
@@ -46,6 +47,16 @@ public class TotalItemsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         txtGrandTotal = findViewById(R.id.cartGrandTotal);
+
+        placeOrder=findViewById(R.id.placeOrder);
+
+        placeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(TotalItemsActivity.this,PersonInformationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
