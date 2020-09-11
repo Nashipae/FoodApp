@@ -20,12 +20,15 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
+
 public class TotalItemsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Button placeOrder;
     private TextView txtGrandTotal;
+    private Integer GrandSum=0;
     private String userID;
     FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter;
     FirebaseRecyclerOptions<Cart> options;
@@ -39,7 +42,6 @@ public class TotalItemsActivity extends AppCompatActivity {
         userID = getIntent().getStringExtra("userID");
 
         recyclerView = findViewById(R.id.cartList);
-        recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -52,17 +54,20 @@ public class TotalItemsActivity extends AppCompatActivity {
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("CartList");
 
         options = new FirebaseRecyclerOptions.Builder<Cart>()
-                .setQuery(cartListRef.child("User View")
-                        .child(userID).child("Products"),
-                        Cart.class
-                ).build();
+                .setQuery
+                (
+                    cartListRef.child("User View").child(userID).child("Products"),Cart.class
+                )
+                .build();
 
         adapter = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
+                GrandSum += Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
                 holder.txtPQuantity.setText(model.getQuantity());
-                holder.txtPName.setText(model.getPname());
-                holder.txtPPrice.setText(model.getPrice());
+                holder.txtPName.setText("Price: " +model.getPname());
+                holder.txtPPrice.setText("Quantity: "+ model.getPrice());
+                txtGrandTotal.setText(Integer.toString(GrandSum));
             }
 
             @NonNull

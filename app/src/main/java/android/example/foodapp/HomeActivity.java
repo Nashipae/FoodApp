@@ -43,7 +43,6 @@ public class HomeActivity extends AppCompatActivity {
     private TextView txtUserName, txtUserPhone;
     private Menu menu;
     private AppBarConfiguration mAppBarConfiguration;
-    private DatabaseReference ProductRef;
     private DatabaseReference UsersRef;
     private RecyclerView productRecyclerView;
     private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
@@ -58,8 +57,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-        ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true);
         productRecyclerView.setLayoutManager(layoutManager);
@@ -105,7 +102,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.child(userphone).exists()){
                     user = snapshot.child(userphone).getValue(Users.class);
-                    Log.d("Navbar",user.getUsername());
                     txtUserName.setText(user.getUsername());
                     txtUserPhone.setText(user.getPhone());
                 }
@@ -133,6 +129,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        final DatabaseReference ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         //options for firebase adapter for products
         options = new FirebaseRecyclerOptions.Builder<Products>()
                 .setQuery(ProductRef,Products.class)
