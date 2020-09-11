@@ -64,9 +64,9 @@ public class TotalItemsActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
                 GrandSum += Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
-                holder.txtPQuantity.setText(model.getQuantity());
-                holder.txtPName.setText("Price: " +model.getPname());
-                holder.txtPPrice.setText("Quantity: "+ model.getPrice());
+                holder.txtPName.setText(model.getPname());
+                holder.txtPQuantity.setText("Quantity: " +model.getQuantity());
+                holder.txtPPrice.setText("Price: " +model.getPrice());
                 txtGrandTotal.setText(Integer.toString(GrandSum));
             }
 
