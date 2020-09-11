@@ -7,10 +7,6 @@
     android:background="#cae6ca"
     tools:context=".TotalItemsActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,173 +19,14 @@
                 android:background="@drawable/background_bottom_rounded"
                 android:layout_weight="1">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cartList"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="0.35">
+                    android:layout_weight="0.6">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                </androidx.recyclerview.widget.RecyclerView>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/item_image1"
-                            android:layout_weight="0.3">
-                        </ImageView>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            android:layout_marginVertical="20dp"
-                            android:layout_weight="0.7">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="dcbdvfbvfnvbfbvfbvbfv"
-                                android:textSize="25sp"
-                                android:textColor="#FFFFFF">
-                            </TextView>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:id="@+id/prodPrice1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Rs.499/-"
-                                    android:textSize="20sp"
-                                    android:textColor="#FFFFFF"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textAlignment="textStart"
-                                    android:layout_gravity="center"
-                                    android:layout_weight="1"
-                                    tools:ignore="RtlCompat">
-                                </TextView>
-
-                                <TextView
-                                    android:id="@+id/prodWeight1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="10Kg"
-                                    android:textSize="20sp"
-                                    android:textColor="#FFFFFF"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textAlignment="textStart"
-                                    android:layout_gravity="center"
-                                    android:paddingLeft="10dp"
-                                    android:layout_weight="1"
-                                    tools:ignore="RtlCompat">
-                                </TextView>
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="15sp"
-                                android:textColor="#FFFFFF"
-                                android:text="ajkdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
-                            </TextView>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_weight="0.35">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/item_image1"
-                            android:layout_weight="0.3">
-                        </ImageView>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp"
-                            android:layout_marginVertical="20dp"
-                            android:layout_weight="0.7">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="dcbdvfbvfnvbfbvfbvbfv"
-                                android:textSize="25sp"
-                                android:textColor="#FFFFFF">
-                            </TextView>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:id="@+id/prodPrice2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Rs.499/-"
-                                    android:textSize="20sp"
-                                    android:textColor="#FFFFFF"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textAlignment="textStart"
-                                    android:layout_gravity="center"
-                                    android:layout_weight="1"
-                                    tools:ignore="RtlCompat">
-                                </TextView>
-
-                                <TextView
-                                    android:id="@+id/prodWeight2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="10Kg"
-                                    android:textSize="20sp"
-                                    android:textColor="#FFFFFF"
-                                    android:fontFamily="@font/poppins_medium"
-                                    android:textAlignment="textStart"
-                                    android:layout_gravity="center"
-                                    android:paddingLeft="10dp"
-                                    android:layout_weight="1"
-                                    tools:ignore="RtlCompat">
-                                </TextView>
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="15sp"
-                                android:textColor="#FFFFFF"
-                                android:text="ajkdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
-                            </TextView>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
 
                 <LinearLayout
@@ -215,6 +52,7 @@
                         </TextView>
 
                         <TextView
+                            android:id="@+id/cartTotalPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="998.00"
@@ -238,6 +76,7 @@
                         </TextView>
 
                         <TextView
+                            android:id="@+id/cartTax"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="15.00"
@@ -261,6 +100,7 @@
                         </TextView>
 
                         <TextView
+                            android:id="@+id/cartDeliveryCharge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0.00"
@@ -284,6 +124,7 @@
                         </TextView>
 
                         <TextView
+                            android:id="@+id/cartGrandTotal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1013.00"
@@ -320,8 +161,6 @@
             </Button>
 
         </LinearLayout>
-
-    </ScrollView>
 
 
 

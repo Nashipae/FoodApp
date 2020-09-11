@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.data.model.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -57,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true);
@@ -74,12 +76,17 @@ public class HomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(HomeActivity.this, TotalItemsActivity.class);
+                intent.putExtra("userID",userphone);
+                startActivity(intent);
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        txtUserName = headerView.findViewById(R.id.nav_user_name);
+        txtUserPhone = headerView.findViewById(R.id.user_phone_number);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
@@ -87,20 +94,24 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        menu = navigationView.getMenu();
+        NavBarUpdateUser();
 
+    }
+
+    private void NavBarUpdateUser() {
         // adding info about user in the navigation bar
         UsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.child(userphone).exists()){
                     user = snapshot.child(userphone).getValue(Users.class);
+                    Log.d("Navbar",user.getUsername());
+                    txtUserName.setText(user.getUsername());
+                    txtUserPhone.setText(user.getPhone());
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -122,10 +133,11 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        //options for firebase adapter for products
         options = new FirebaseRecyclerOptions.Builder<Products>()
                 .setQuery(ProductRef,Products.class)
                 .build();
-
+        //adapter for products on home display
         adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
@@ -137,12 +149,12 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent  = new Intent(HomeActivity.this, ProductDescriptionActivity.class);
                         intent.putExtra("pid",model.getProd_id());
+                        intent.putExtra("userID",userphone);
                         Log.d("myAnalysis", "onClick() returned: " + model.getProd_id());
                         startActivity(intent);
                     }
                 });
             }
-
             @NonNull
             @Override
             public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
