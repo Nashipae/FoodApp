@@ -130,16 +130,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         final DatabaseReference ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
         //options for firebase adapter for products
         options = new FirebaseRecyclerOptions.Builder<Products>()
                 .setQuery(ProductRef,Products.class)
                 .build();
+
         //adapter for products on home display
         adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
                 holder.prodPrice.setText(model.getProd_price());
-                holder.prodDesc.setText(model.getProd_desc());
+                holder.prodDesc.setText(model.getProd_name());
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

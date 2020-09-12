@@ -14,10 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.data.model.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -73,11 +76,25 @@ public class TotalItemsActivity extends AppCompatActivity {
 
         adapter = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
+            protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull final Cart model) {
                 GrandSum += Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
                 holder.txtPName.setText(model.getPname());
                 holder.txtPQuantity.setText("Quantity: " +model.getQuantity());
                 holder.txtPPrice.setText("Price: " +model.getPrice());
+                holder.btnRemove.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        cartListRef.child("User View").child(userID).child("Products")
+                                .child(model.getPid()).removeValue()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(TotalItemsActivity.this, "Item removed from cart...", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        ;
+                    }
+                });
                 txtGrandTotal.setText(Integer.toString(GrandSum));
             }
 
