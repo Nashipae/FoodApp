@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PersonInformationActivity"></activity>
+        <activity android:name=".PaymentModeActivity"></activity>
+        <activity android:name=".PersonInformationActivity" />
         <activity android:name=".TotalItemsActivity" />
         <activity android:name=".ProductDescriptionActivity" />
         <activity

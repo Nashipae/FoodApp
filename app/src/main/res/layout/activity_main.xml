@@ -132,9 +132,8 @@
                     android:layoutDirection="rtl"
                     android:paddingVertical="10dp"
                     android:paddingLeft="23dp"
-                    android:text="Engish"
+                    android:text="English"
                     android:fontFamily="@font/poppins_medium"
-
                     android:textSize="23sp" />
             </RadioGroup>
 
