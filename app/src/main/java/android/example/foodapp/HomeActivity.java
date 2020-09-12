@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -148,12 +149,12 @@ public class HomeActivity extends AppCompatActivity {
                         Intent intent  = new Intent(HomeActivity.this, ProductDescriptionActivity.class);
                         intent.putExtra("pid",model.getProd_id());
                         intent.putExtra("userID",userID);
-                        Log.d("myAnalysis", "onClick() returned: " + model.getProd_id());
                         startActivity(intent);
                     }
                 };
                 holder.itemView.setOnClickListener(viewMore);
                 holder.prodViewMore.setOnClickListener(viewMore);
+                Picasso.get().load(model.getImage()).into(holder.prodImage);
 
             }
             @NonNull
@@ -175,4 +176,5 @@ public class HomeActivity extends AppCompatActivity {
             adapter.stopListening();
         }
     }
+
 }

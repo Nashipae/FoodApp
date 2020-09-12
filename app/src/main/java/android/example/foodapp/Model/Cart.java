@@ -1,18 +1,27 @@
 package android.example.foodapp.Model;
 
 public class Cart {
-    private String pid,pname, price, quantity, timestamp;
+    private String pid,pname, price, quantity, timestamp, image;
 
     public Cart() {
 
     }
 
-    public Cart(String pid, String pname, String price, String quantity, String timestamp) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Cart(String pid, String pname, String price, String quantity, String timestamp, String image) {
         this.pid = pid;
         this.pname = pname;
         this.price = price;
         this.quantity = quantity;
         this.timestamp = timestamp;
+        this.image = image;
     }
 
     public String getPid() {

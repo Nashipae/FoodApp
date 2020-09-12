@@ -18,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class PlaceOrderActivity extends AppCompatActivity {
 
@@ -78,6 +79,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 holder.txtPName.setText(model.getPname());
                 holder.txtPQuantity.setText("Quantity: " +model.getQuantity());
                 holder.txtPPrice.setText("Price: " +model.getPrice());
+                Picasso.get().load(model.getImage()).into(holder.image);
             }
 
             @NonNull

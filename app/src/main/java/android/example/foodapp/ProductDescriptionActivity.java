@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,9 +34,11 @@ import static java.lang.Integer.parseInt;
 public class ProductDescriptionActivity extends AppCompatActivity {
 
     private TextView prodName,prodPrice, prodWeight, prodDescription, quantity;
+    private ImageView image;
     private Button viewCart, buyNow;
     private ImageButton decreaseQuantity, increaseQuantity;
     private String pid;
+    private String imageURL;
     private String userID;
 
     @Override
@@ -51,6 +55,7 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         decreaseQuantity = this.<ImageButton>findViewById(R.id.decreaseQuantity);
         increaseQuantity = this.<ImageButton>findViewById(R.id.increaseQuantity);
         buyNow = this.<Button>findViewById(R.id.buyNow);
+        image = findViewById(R.id.prodImage);
         pid = getIntent().getStringExtra("pid");
         userID = getIntent().getStringExtra("userID");
 
@@ -104,6 +109,7 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         cartMap.put("price",prodPrice.getText().toString());
         cartMap.put("timestamp",timestamp);
         cartMap.put("quantity",quantity.getText().toString());
+        cartMap.put("image",imageURL);
         cartMap.put("pid",pid);
 
         cartListRef.child("User View").child(userID).child("Products")
@@ -115,7 +121,7 @@ public class ProductDescriptionActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(ProductDescriptionActivity.this, "Item added to cart...", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(ProductDescriptionActivity.this, HomeActivity.class);
-                            intent.putExtra("Userphone",userID);
+                            intent.putExtra("userID",userID);
                             startActivity(intent);
                         }
                     }
@@ -143,6 +149,8 @@ public class ProductDescriptionActivity extends AppCompatActivity {
                     prodPrice.setText(products.getProd_price());
                     prodWeight.setText(products.getProd_weight());
                     prodDescription.setText(products.getProd_desc());
+                    Picasso.get().load(products.getImage()).into(image);
+                    imageURL = products.getImage();
                     progressDialog.dismiss();
                 }
             }
