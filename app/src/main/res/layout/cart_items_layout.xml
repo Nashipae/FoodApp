@@ -75,9 +75,19 @@
 
                 <Button
                     android:id="@+id/cartRemoveBtn"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Remove"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:textAllCaps="false"
+                    android:paddingHorizontal="15dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Remove Item"
                     />
             </LinearLayout>
 
