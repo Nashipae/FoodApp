@@ -57,6 +57,7 @@ public class TotalItemsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(TotalItemsActivity.this,PersonInformationActivity.class);
+                intent.putExtra("userID",userID);
                 startActivity(intent);
             }
         });
