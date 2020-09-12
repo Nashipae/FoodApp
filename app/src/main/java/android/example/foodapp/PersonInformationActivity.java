@@ -39,6 +39,7 @@ public class PersonInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(PersonInformationActivity.this,PaymentModeActivity.class);
+                intent.putExtra("userID",userID);
                 startActivity((intent));
             }
         });

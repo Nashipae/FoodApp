@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView productRecyclerView;
     private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
     private FirebaseRecyclerOptions<Products> options;
-    private String userphone;
+    private String userID;
     private Users user;
 
     RecyclerView.LayoutManager layoutManager;
@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true);
         productRecyclerView.setLayoutManager(layoutManager);
-        userphone = getIntent().getStringExtra("Userphone");
+        userID = getIntent().getStringExtra("userID");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
@@ -74,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, TotalItemsActivity.class);
-                intent.putExtra("userID",userphone);
+                intent.putExtra("userID",userID);
                 startActivity(intent);
             }
         });
@@ -100,8 +100,8 @@ public class HomeActivity extends AppCompatActivity {
         UsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child(userphone).exists()){
-                    user = snapshot.child(userphone).getValue(Users.class);
+                if(snapshot.child(userID).exists()){
+                    user = snapshot.child(userID).getValue(Users.class);
                     txtUserName.setText(user.getUsername());
                     txtUserPhone.setText(user.getPhone());
                 }
@@ -141,18 +141,20 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
                 holder.prodPrice.setText(model.getProd_price());
-                holder.prodDesc.setText(model.getProd_name());
-
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                holder.prodName.setText(model.getProd_name());
+                View.OnClickListener viewMore = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent  = new Intent(HomeActivity.this, ProductDescriptionActivity.class);
                         intent.putExtra("pid",model.getProd_id());
-                        intent.putExtra("userID",userphone);
+                        intent.putExtra("userID",userID);
                         Log.d("myAnalysis", "onClick() returned: " + model.getProd_id());
                         startActivity(intent);
                     }
-                });
+                };
+                holder.itemView.setOnClickListener(viewMore);
+                holder.prodViewMore.setOnClickListener(viewMore);
+
             }
             @NonNull
             @Override

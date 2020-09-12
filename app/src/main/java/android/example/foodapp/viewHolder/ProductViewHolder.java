@@ -4,6 +4,7 @@ package android.example.foodapp.viewHolder;
 import android.example.foodapp.Interface.ItemClickListener;
 import android.example.foodapp.R;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,13 +16,15 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
 //    public ImageView prodImage;
     public TextView prodDesc, prodName, prodPrice;
     public ItemClickListener listener;
+    public Button prodViewMore;
 
     public ProductViewHolder(@NonNull View itemView) {
         super(itemView);
 //        prodImage = (ImageView) itemView.findViewById(R.id.prodImage);
-        prodDesc = (TextView) itemView.findViewById(R.id.prodDesc);
-//        prodName = (ImageView) itemView.findViewById(R.id.prodName);
+//        prodDesc = (TextView) itemView.findViewById(R.id.prodDesc);
+        prodName = (TextView) itemView.findViewById(R.id.prodName);
         prodPrice = (TextView) itemView.findViewById(R.id.prodPrice);
+        prodViewMore = itemView.findViewById(R.id.prodViewMore);
 
     }
 
