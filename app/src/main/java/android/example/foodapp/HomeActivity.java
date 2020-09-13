@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -58,11 +60,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+//        setNavigationViewListener();
+
+
         productRecyclerView = (RecyclerView) findViewById(R.id.productRecyclerView);
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, true);
         productRecyclerView.setLayoutManager(layoutManager);
         userID = getIntent().getStringExtra("userID");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -82,6 +89,24 @@ public class HomeActivity extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch(item.getItemId()){
+//
+//                    case R.id.nav_dashboard:
+////                        Intent intent =new Intent(HomeActivity.this,UserProfileActivity.class);
+////                        startActivity(intent);
+////                        return true;
+//                        Toast.makeText(HomeActivity.this, "Hey Abhay", Toast.LENGTH_SHORT).show();
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
+
         View headerView = navigationView.getHeaderView(0);
         txtUserName = headerView.findViewById(R.id.nav_user_name);
         txtUserPhone = headerView.findViewById(R.id.user_phone_number);
@@ -95,6 +120,7 @@ public class HomeActivity extends AppCompatActivity {
         NavBarUpdateUser();
 
     }
+
 
     private void NavBarUpdateUser() {
         // adding info about user in the navigation bar
@@ -120,12 +146,16 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 
     @Override
     protected void onStart() {
@@ -176,5 +206,4 @@ public class HomeActivity extends AppCompatActivity {
             adapter.stopListening();
         }
     }
-
 }
