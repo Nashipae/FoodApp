@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/homeType0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
@@ -39,6 +40,7 @@
             android:src="@drawable/cow"></ImageButton>
 
         <ImageButton
+            android:id="@+id/homeType1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -47,6 +49,7 @@
             android:src="@drawable/fish_dull"></ImageButton>
 
         <ImageButton
+            android:id="@+id/homeType2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"

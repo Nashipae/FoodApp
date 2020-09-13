@@ -79,7 +79,7 @@ public class TotalItemsActivity extends AppCompatActivity {
                 GrandSum += Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
                 holder.txtPName.setText(model.getPname());
                 holder.txtPQuantity.setText("Quantity: " +model.getQuantity());
-                holder.txtPPrice.setText("Price: " +model.getPrice());
+                holder.txtPPrice.setText("Rs." +model.getPrice()+"/-");
                 holder.btnRemove.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

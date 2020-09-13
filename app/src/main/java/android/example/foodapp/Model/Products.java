@@ -1,12 +1,12 @@
 package android.example.foodapp.Model;
 
 public class Products {
-    public String prod_desc, prod_id, prod_name, prod_price, prod_raters, prod_rating, prod_stock, prod_weight, image;
+    public String prod_desc, prod_id, prod_name, prod_price, prod_raters, prod_rating, prod_stock, prod_weight, image,prod_type;
     public Products(){
 
     }
 
-    public Products(String prod_desc, String prod_id, String prod_name, String prod_price, String prod_raters, String prod_rating, String prod_stock, String prod_weight, String image) {
+    public Products(String prod_desc, String prod_id, String prod_name, String prod_price, String prod_raters, String prod_rating, String prod_stock, String prod_weight, String image, String prod_type) {
         this.prod_desc = prod_desc;
         this.prod_id = prod_id;
         this.prod_name = prod_name;
@@ -16,6 +16,15 @@ public class Products {
         this.prod_stock = prod_stock;
         this.prod_weight = prod_weight;
         this.image = image;
+        this.prod_type = prod_type;
+    }
+
+    public String getProd_type() {
+        return prod_type;
+    }
+
+    public void setProd_type(String prod_type) {
+        this.prod_type = prod_type;
     }
 
     public String getProd_desc() {

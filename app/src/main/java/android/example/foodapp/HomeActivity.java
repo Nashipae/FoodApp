@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -52,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseRecyclerOptions<Products> options;
     private String userID;
     private Users user;
+    private ImageButton homeType0,homeType1,homeType2;
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -68,8 +71,39 @@ public class HomeActivity extends AppCompatActivity {
         productRecyclerView.setLayoutManager(layoutManager);
         userID = getIntent().getStringExtra("userID");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        homeType0 = findViewById(R.id.homeType0);
+        homeType1 = findViewById(R.id.homeType1);
+        homeType2 = findViewById(R.id.homeType2);
 
+        homeType0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeType0.setImageResource(R.drawable.cow);
+                homeType1.setImageResource(R.drawable.fish_dull);
+                homeType2.setImageResource(R.drawable.bull_dull);
+                changeQuery("0");
+            }
+        });
 
+        homeType1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeType0.setImageResource(R.drawable.cow_dull);
+                homeType1.setImageResource(R.drawable.fish);
+                homeType2.setImageResource(R.drawable.bull_dull);
+                changeQuery("1");
+            }
+        });
+
+        homeType2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeType0.setImageResource(R.drawable.cow_dull);
+                homeType1.setImageResource(R.drawable.fish_dull);
+                homeType2.setImageResource(R.drawable.bull);
+                changeQuery("2");
+            }
+        });
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -162,17 +196,22 @@ public class HomeActivity extends AppCompatActivity {
         super.onStart();
         final DatabaseReference ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
+        //setting the query
+        Query query = ProductRef.orderByChild("prod_weight");
+
         //options for firebase adapter for products
         options = new FirebaseRecyclerOptions.Builder<Products>()
-                .setQuery(ProductRef,Products.class)
+                .setQuery(query,Products.class)
                 .build();
 
         //adapter for products on home display
         adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
-                holder.prodPrice.setText(model.getProd_price());
+                holder.prodPrice.setText("Rs. "+model.getProd_price()+"/-");
                 holder.prodName.setText(model.getProd_name());
+                holder.prodWeight.setText(model.getProd_weight()+ "Kg");
+
                 View.OnClickListener viewMore = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -198,6 +237,23 @@ public class HomeActivity extends AppCompatActivity {
         productRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
+
+    private void changeQuery(String type){
+        final DatabaseReference ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+        //setting the new query
+        Query query = ProductRef.orderByChild("prod_type").equalTo(type);
+
+        //changing the options
+        options = new FirebaseRecyclerOptions.Builder<Products>()
+                .setQuery(query, Products.class)
+                .build();
+
+        // Change options of adapter.
+        adapter.updateOptions(options);
+    }
+
+
 
     @Override
     protected void onStop() {

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public ImageView prodImage;
-    public TextView prodDesc, prodName, prodPrice;
+    public TextView prodDesc, prodName, prodPrice, prodWeight;
     public ItemClickListener listener;
     public Button prodViewMore;
 
@@ -24,6 +24,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
         prodName = (TextView) itemView.findViewById(R.id.prodName);
         prodPrice = (TextView) itemView.findViewById(R.id.prodPrice);
         prodViewMore = itemView.findViewById(R.id.prodViewMore);
+        prodWeight = itemView.findViewById(R.id.prodWeight);
 
     }
 
