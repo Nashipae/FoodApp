@@ -83,10 +83,10 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
         for(Cart items: cartItems){
 
-            final DatabaseReference UserView = OrderRef.child("User View").child(userID).child(timestamp+"_"+items.getPid());
-            DatabaseReference AdminView = OrderRef.child("Admin View").child("Products").child(timestamp+"_"+items.getPid());
+            final DatabaseReference UserView = OrderRef.child("User View").child(userID).child(timestamp+"_"+items.getPid()+"_"+userID);
+            DatabaseReference AdminView = OrderRef.child("Admin View").child("Products").child(timestamp+"_"+items.getPid()+"_"+userID);
             final HashMap<String, Object> orderItem = new HashMap<>();
-            orderItem.put("orderID",timestamp+"_"+items.getPid());
+            orderItem.put("orderID",timestamp+"_"+items.getPid()+"_"+userID);
             orderItem.put("quantity", items.getQuantity());
             orderItem.put("price", items.getPrice());
             orderItem.put("total", Integer.toString(Integer.valueOf(items.getPrice())*Integer.valueOf(items.getQuantity())));
