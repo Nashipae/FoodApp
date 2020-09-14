@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectLanguageActivity"></activity>
+        <activity android:name=".AdminProductAddActivity"></activity>
+        <activity android:name=".AdminProductTypeActivity" />
+        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".SelectLanguageActivity" />
         <activity android:name=".OrderPlacedActivity" />
         <activity android:name=".PlaceOrderActivity" />
         <activity android:name=".PaymentModeActivity" />

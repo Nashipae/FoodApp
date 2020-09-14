@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginBtn,signupBtn,showHideBtn,forgotPassword; /*register button added*/
+    private Button adminLogin;
     private EditText inputUsername,inputPassword;
     private CheckBox saved_preferences;
     private SharedPreferences.Editor loginPrefsEditor;
@@ -58,6 +59,15 @@ public class LoginActivity extends AppCompatActivity {
             inputUsername.setText(saved_username);
             inputPassword.setText(saved_password);
         }
+
+        adminLogin = findViewById(R.id.adminLogin);
+        adminLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, AdminLoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        forgot password
         forgotPassword.setOnClickListener(new View.OnClickListener() {
