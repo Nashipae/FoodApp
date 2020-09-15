@@ -104,6 +104,46 @@
             </TextView>
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true">
+
+            <ImageButton
+                android:id="@+id/decreaseQuantity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:backgroundTint="@color/colorPrimary"
+                android:background="@drawable/btn_rounded"
+                android:layout_centerVertical="true"
+
+                android:src="@drawable/remove_item">
+            </ImageButton>
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="1"
+                android:layout_centerVertical="true"
+                android:textColor="#000000"
+                android:textSize="27sp">
+            </TextView>
+            <ImageButton
+                android:id="@+id/increaseQuantity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/colorPrimary"
+                android:background="@drawable/btn_rounded"
+                android:layout_centerVertical="true"
+                android:src="@drawable/add_item">
+            </ImageButton>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,14 +151,10 @@
             android:layout_weight="0.2"
             android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
                 <Button
                     android:id="@+id/viewCart"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:text="Go to cart"
                     android:textSize="15sp"
                     android:textAllCaps="false"
@@ -127,59 +163,15 @@
                     android:paddingHorizontal="15dp"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="#FFFFFF"
+                    android:layout_weight="0.5"
                     android:layout_alignParentLeft="true"
                     android:layout_marginTop="5dp">
-
                 </Button>
-
-                <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerInParent="true">
-
-                    <ImageButton
-                        android:id="@+id/decreaseQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_alignParentStart="true"
-                        android:backgroundTint="#cae6ca"
-                        android:src="@drawable/remove_item">
-
-                    </ImageButton>
-
-                    <TextView
-                        android:id="@+id/quantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="1"
-                        android:textColor="#000000"
-                        android:textSize="20sp">
-                    </TextView>
-
-                    <ImageButton
-                        android:id="@+id/increaseQuantity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_alignParentEnd="true"
-                        android:backgroundTint="#cae6ca"
-                        android:src="@drawable/add_item">
-
-                    </ImageButton>
-
-
-
-                </RelativeLayout>
-
-
 
                 <Button
                     android:id="@+id/buyNow"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:text="Add to cart"
                     android:textAllCaps="false"
                     android:background="@drawable/btn_rounded"
@@ -187,15 +179,11 @@
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"
+                    android:layout_weight="0.5"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="5dp">
 
                 </Button>
-
-            </RelativeLayout>
-
-
-
         </LinearLayout>
 
 

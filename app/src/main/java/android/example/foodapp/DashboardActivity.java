@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SelectLanguageActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
-    private Button saveBtn;
+    private Button save_changes_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_language);
+        setContentView(R.layout.activity_dashboard);
 
-        saveBtn=findViewById(R.id.saveBtn);
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        save_changes_btn=findViewById(R.id.save_changes_btn);
+        save_changes_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(SelectLanguageActivity.this,HomeActivity.class);
+                Intent intent=new Intent(DashboardActivity.this,HomeActivity.class);
                 startActivity(intent);
             }
         });

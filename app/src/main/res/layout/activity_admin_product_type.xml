@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AdminProductTypeActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Item Category"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:paddingHorizontal="10dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_medium">
+
+    </TextView>
 
     <Button
         android:id="@+id/typeCow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cow"
-        app:layout_constraintBottom_toTopOf="@+id/typeFish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_rounded"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:paddingHorizontal="30dp"
+        />
 
     <Button
         android:id="@+id/typeFish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fish"
-        app:layout_constraintBottom_toTopOf="@+id/typeBuff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_rounded"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:paddingHorizontal="30dp"
+        android:text="fish" />
 
     <Button
         android:id="@+id/typeBuff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="buff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_rounded"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:paddingHorizontal="30dp"
+        android:text="buff" />
+</LinearLayout>

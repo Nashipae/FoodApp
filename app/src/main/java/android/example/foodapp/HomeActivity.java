@@ -108,7 +108,11 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
+
+        toolbar.setNavigationIcon(R.drawable.hamburger_icon);
         setSupportActionBar(toolbar);
+
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -123,23 +127,62 @@ public class HomeActivity extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
 
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch(item.getItemId()){
-//
-//                    case R.id.nav_dashboard:
-////                        Intent intent =new Intent(HomeActivity.this,UserProfileActivity.class);
-////                        startActivity(intent);
-////                        return true;
-//                        Toast.makeText(HomeActivity.this, "Hey Abhay", Toast.LENGTH_SHORT).show();
+                int id=item.getItemId();
+
+                switch (id) {
+
+                    case R.id.nav_dashboard:{
+                        Intent intent= new Intent(HomeActivity.this,DashboardActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.nav_language:{
+                        Intent intent= new Intent(HomeActivity.this,SelectLanguageActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+//                    case R.id.delivery_history:{
+//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
+//                        startActivity(intent);
 //                        break;
-//                }
-//                return true;
-//            }
-//        });
+//                    }
+
+//                    case R.id.nav_share:{
+//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                    }
+
+//                    case R.id.nav_contact:{
+//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                    }
+
+//                    case R.id.nav_rate:{
+//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
+//                        startActivity(intent);
+//                        break;
+//                    }
+
+                    case R.id.nav_logout:{
+                        Intent intent= new Intent(HomeActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+        
 
         View headerView = navigationView.getHeaderView(0);
         txtUserName = headerView.findViewById(R.id.nav_user_name);
@@ -148,9 +191,9 @@ public class HomeActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//        NavigationUI.setupWithNavController(navigationView, navController);
         NavBarUpdateUser();
 
     }
@@ -182,12 +225,12 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+//                || super.onSupportNavigateUp();
+//    }
 
 
 

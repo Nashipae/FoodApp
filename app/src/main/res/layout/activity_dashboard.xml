@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashboardActivity">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/profile"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FFFFFFFF" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:hint="change your name"
+            android:layout_weight="0.1"
+            android:textAlignment="center"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginHorizontal="13dp">
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:hint="change phone number"
+            android:layout_weight="0.1"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginHorizontal="13dp">
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:hint="change city name"
+            android:layout_weight="0.1"
+            android:textAlignment="center"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginHorizontal="13dp">
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:hint="change PIN Code"
+            android:layout_weight="0.1"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginHorizontal="13dp">
+        </EditText>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5">
+
+        <Button
+            android:id="@+id/save_changes_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_rounded"
+            android:textSize="25sp"
+            android:layout_centerInParent="true"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins_bold"
+            android:textAllCaps="false"
+            android:paddingHorizontal="20dp"
+            android:text="Save Changes">
+
+        </Button>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>

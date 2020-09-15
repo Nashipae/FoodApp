@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminProductAddActivity"></activity>
+        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".AdminProductAddActivity" />
         <activity android:name=".AdminProductTypeActivity" />
         <activity android:name=".AdminLoginActivity" />
         <activity android:name=".SelectLanguageActivity" />

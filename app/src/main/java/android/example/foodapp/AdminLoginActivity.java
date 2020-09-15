@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,11 +22,14 @@ import com.google.firebase.database.ValueEventListener;
 public class AdminLoginActivity extends AppCompatActivity {
 
     private EditText adminID, adminPassword;
-    private Button login;
+    private Button login,showHideBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_admin_login);
 
         adminID = findViewById(R.id.adminID);
@@ -35,6 +40,21 @@ public class AdminLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 authenticateAdmin();
+            }
+        });
+
+        showHideBtn=findViewById(R.id.showHideBtn);
+        showHideBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (showHideBtn.getText().equals("SHOW")) {
+                    adminPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showHideBtn.setText("HIDE");
+                    showHideBtn.setTextSize(13);
+                } else if (showHideBtn.getText().equals("HIDE")) {
+                    showHideBtn.setText("SHOW");
+                    adminPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
     }

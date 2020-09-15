@@ -6,24 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".AdminProductAddActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
     <ImageView
         android:id="@+id/ProdImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:maxWidth="150dp"
+        android:maxHeight="150dp"
+        android:scaleType="fitCenter"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.108"
-        app:srcCompat="@drawable/item_image1" />
+        app:srcCompat="@drawable/add_image" />
 
     <EditText
         android:id="@+id/ProdName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="13dp"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="name"
+        android:hint="Product Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,12 +51,13 @@
 
     <EditText
         android:id="@+id/ProdWeight"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="13dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
         android:ems="10"
         android:hint="weight in kg"
-        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,11 +66,13 @@
 
     <EditText
         android:id="@+id/ProdPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="13dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="price in rupees"
-        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,10 +81,12 @@
 
     <EditText
         android:id="@+id/ProdDesc"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="13dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="description"
+        android:hint="Enter description"
+        android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,13 +96,26 @@
 
     <Button
         android:id="@+id/addProduct"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="Add"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:background="@drawable/btn_rounded"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.866" />
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
