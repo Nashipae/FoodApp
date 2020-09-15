@@ -92,23 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
         final String password = inputPassword.getText().toString();
         final String passwordConfirm = inputPasswordConfirm.getText().toString();
         final String phone = inputPhone.getText().toString();
-        final DatabaseReference RootRef,connectedRef;
-
-        connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
-        connectedRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                boolean connected = snapshot.getValue(Boolean.class);
-                if (!connected){
-                    Toast.makeText(RegisterActivity.this, "Connection failed. Recheck connectivity",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                throw error.toException();
-            }
-        });
+        final String Address = "";
+        final DatabaseReference RootRef;
 
         RootRef = FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -127,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
                     else if(!(password.equals(passwordConfirm)))Toast.makeText(RegisterActivity.this,"Passwords do not match",Toast.LENGTH_SHORT).show();
                     else if((password.length()<8  || !isValidPassword(password)))Toast.makeText(RegisterActivity.this,"Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character,",Toast.LENGTH_LONG).show();
                     else {
-                        Users userData = new Users(username,password,phone,city,pin);
+                        Users userData = new Users(username,password,phone,city,pin,Address);
 //                        Map<String,Object> userMap = userData.toMap();
                         RootRef.child(dbname).child(phone).setValue(userData)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {

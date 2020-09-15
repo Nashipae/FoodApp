@@ -14,11 +14,13 @@ import android.widget.Toast;
 public class ContactUsActivity extends AppCompatActivity {
 
     private ImageButton call_btn;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
+        userID = getIntent().getStringExtra("userID");
 
         call_btn=findViewById(R.id.call_btn);
         call_btn.setOnClickListener(new View.OnClickListener() {

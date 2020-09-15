@@ -1,9 +1,9 @@
 package android.example.foodapp.Model;
 
 public class Order {
-    private String orderID,quantity,price,total,orderOnDate, orderReceivedDate, payment, status,pid,user;
+    private String orderID,quantity,price,total,orderOnDate, orderReceivedDate, payment, status,pid,user,address;
 
-    public Order(String orderID,String pid, String quantity, String price, String total, String orderOnDate, String orderReceivedDate, String payment, String status, String user) {
+    public Order(String orderID,String pid, String quantity, String price, String total, String orderOnDate, String orderReceivedDate, String payment, String status, String user, String address) {
         this.orderID = orderID;
         this.quantity = quantity;
         this.price = price;
@@ -14,6 +14,15 @@ public class Order {
         this.status = status;
         this.pid = pid;
         this.user = user;
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUser() {

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -39,6 +40,8 @@ public class PlaceOrderActivity extends AppCompatActivity {
     private String userID;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    private TextView txtGrandTotal, txtCartTotal, txtUserAddress;
+    private Integer GrandSum=0;
     FirebaseRecyclerAdapter<Cart, OrderViewHolder> adapter;
     FirebaseRecyclerOptions<Cart> options;
     private ArrayList<Cart> cartItems = new ArrayList<Cart>();
@@ -51,6 +54,13 @@ public class PlaceOrderActivity extends AppCompatActivity {
         userID = getIntent().getStringExtra("userID");
         changeOrder=findViewById(R.id.changeOrder);
         placeOrder=findViewById(R.id.placeOrder);
+
+
+        txtGrandTotal = findViewById(R.id.cartGrandTotal);
+        txtCartTotal = findViewById(R.id.cartTotalPrice);
+        txtUserAddress = findViewById(R.id.userAddress);
+
+        setUserAddress();
 
         recyclerView = findViewById(R.id.cartList);
         layoutManager = new LinearLayoutManager(this);
@@ -72,6 +82,21 @@ public class PlaceOrderActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setUserAddress() {
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                txtUserAddress.setText(snapshot.child("address").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void ValidateOrder() {
@@ -96,6 +121,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
             orderItem.put("status","Order Booked");
             orderItem.put("user",userID);
             orderItem.put("pid",items.getPid());
+            orderItem.put("address",txtUserAddress.getText());
 
             AdminView.updateChildren(orderItem).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -149,6 +175,10 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 holder.txtPName.setText(model.getPname());
                 holder.txtPQuantity.setText("Quantity: " +model.getQuantity());
                 holder.txtPPrice.setText("Price: " +model.getPrice());
+
+                GrandSum += Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
+                txtGrandTotal.setText(Integer.toString(GrandSum)+".00");
+                txtCartTotal.setText(Integer.toString(GrandSum)+".00");
                 Picasso.get().load(model.getImage()).into(holder.image);
             }
 

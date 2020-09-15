@@ -10,17 +10,22 @@ import android.widget.Button;
 public class DashboardActivity extends AppCompatActivity {
 
     private Button save_changes_btn;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        userID = getIntent().getStringExtra("userID");
+
         save_changes_btn=findViewById(R.id.save_changes_btn);
+
         save_changes_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DashboardActivity.this,HomeActivity.class);
+                intent.putExtra("userID",userID);
                 startActivity(intent);
             }
         });

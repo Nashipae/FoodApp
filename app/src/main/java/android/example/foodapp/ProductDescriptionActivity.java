@@ -97,36 +97,47 @@ public class ProductDescriptionActivity extends AppCompatActivity {
     }
 
     private void AddToCart() {
-        String timestamp;
+        final String timestamp;
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("yyyy dd MMM hh:mm:ss");
         timestamp = format.format(calendar.getTime());
 
-        DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("CartList");
-        final HashMap<String,Object> cartMap = new HashMap<>();
-        cartMap.put("pid",pid);
-        cartMap.put("pname",prodName.getText().toString());
-        cartMap.put("price",prodPrice.getText().toString());
-        cartMap.put("timestamp",timestamp);
-        cartMap.put("quantity",quantity.getText().toString());
-        cartMap.put("image",imageURL);
-        cartMap.put("pid",pid);
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("CartList");
+        DatabaseReference productRef = FirebaseDatabase.getInstance().getReference().child("Products").child(pid);
+        productRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Products products = snapshot.getValue(Products.class);
+                final HashMap<String,Object> cartMap = new HashMap<>();
+                cartMap.put("pid",pid);
+                cartMap.put("pname",products.prod_name);
+                cartMap.put("price",products.getProd_price());
+                cartMap.put("timestamp",timestamp);
+                cartMap.put("quantity",quantity.getText().toString());
+                cartMap.put("image",imageURL);
 
-        cartListRef.child("User View").child(userID).child("Products")
-                .child(pid)
-                .updateChildren(cartMap)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(ProductDescriptionActivity.this, "Item added to cart...", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(ProductDescriptionActivity.this, HomeActivity.class);
-                            intent.putExtra("userID",userID);
-                            startActivity(intent);
-                        }
-                    }
-                })
-        ;
+                cartListRef.child("User View").child(userID).child("Products")
+                        .child(pid)
+                        .updateChildren(cartMap)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(ProductDescriptionActivity.this, "Item added to cart...", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(ProductDescriptionActivity.this, HomeActivity.class);
+                                    intent.putExtra("userID",userID);
+                                    startActivity(intent);
+                                }
+                            }
+                        });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
     }
@@ -146,8 +157,8 @@ public class ProductDescriptionActivity extends AppCompatActivity {
                     progressDialog.show();
                     Products products = snapshot.getValue(Products.class);
                     prodName.setText(products.getProd_name());
-                    prodPrice.setText(products.getProd_price());
-                    prodWeight.setText(products.getProd_weight());
+                    prodPrice.setText("Rs. "+products.getProd_price()+"/-");
+                    prodWeight.setText(products.getProd_weight()+"Kg");
                     prodDescription.setText(products.getProd_desc());
                     Picasso.get().load(products.getImage()).into(image);
                     imageURL = products.getImage();

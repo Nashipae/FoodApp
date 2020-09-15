@@ -27,6 +27,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.BuildConfig;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
     private String userID;
     private Users user;
     private ImageButton homeType0,homeType1,homeType2,ham_icon;
+    private Button allTypes;
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -78,6 +80,8 @@ public class HomeActivity extends AppCompatActivity {
         homeType0 = findViewById(R.id.homeType0);
         homeType1 = findViewById(R.id.homeType1);
         homeType2 = findViewById(R.id.homeType2);
+        homeType2 = findViewById(R.id.homeType2);
+        allTypes = findViewById(R.id.all_category);
 
         homeType0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +90,16 @@ public class HomeActivity extends AppCompatActivity {
                 homeType1.setImageResource(R.drawable.fish_dull);
                 homeType2.setImageResource(R.drawable.bull_dull);
                 changeQuery("0");
+            }
+        });
+
+        allTypes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeType0.setImageResource(R.drawable.cow);
+                homeType1.setImageResource(R.drawable.fish_dull);
+                homeType2.setImageResource(R.drawable.bull_dull);
+                changeQuery("all");
             }
         });
 
@@ -159,16 +173,19 @@ public class HomeActivity extends AppCompatActivity {
 
                     case R.id.nav_dashboard:{
                         Intent intent= new Intent(HomeActivity.this,DashboardActivity.class);
+                        intent.putExtra("userID",userID);
                         startActivity(intent);
                         break;
                     }
                     case R.id.nav_language:{
                         Intent intent= new Intent(HomeActivity.this,SelectLanguageActivity.class);
+                        intent.putExtra("userID",userID);
                         startActivity(intent);
                         break;
                     }
 //                    case R.id.delivery_history:{
 //                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
+//                        intent.putExtra("userID",userID);
 //                        startActivity(intent);
 //                        break;
 //                    }
@@ -183,13 +200,14 @@ public class HomeActivity extends AppCompatActivity {
                             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                             startActivity(Intent.createChooser(shareIntent, "choose one"));
                         } catch(Exception e) {
-                            //e.toString();
+                            e.toString();
                         }
                         break;
                     }
 
                     case R.id.nav_contact:{
                         Intent intent= new Intent(HomeActivity.this,ContactUsActivity.class);
+                        intent.putExtra("userID",userID);
                         startActivity(intent);
                         break;
                     }
@@ -316,7 +334,9 @@ public class HomeActivity extends AppCompatActivity {
         final DatabaseReference ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         //setting the new query
-        Query query = ProductRef.orderByChild("prod_type").equalTo(type);
+        Query query;
+        if(type!="all") query = ProductRef.orderByChild("prod_type").equalTo(type);
+        else query = ProductRef.orderByChild("prod_type");
 
         //changing the options
         options = new FirebaseRecyclerOptions.Builder<Products>()

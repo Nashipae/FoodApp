@@ -29,7 +29,7 @@ public class TotalItemsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Button placeOrder;
-    private TextView txtGrandTotal;
+    private TextView txtGrandTotal, txtCartTotal;
     private Integer GrandSum=0;
     private String userID;
     FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter;
@@ -48,15 +48,19 @@ public class TotalItemsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         txtGrandTotal = findViewById(R.id.cartGrandTotal);
+        txtCartTotal = findViewById(R.id.cartTotalPrice);
 
         placeOrder=findViewById(R.id.placeOrder);
 
         placeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(TotalItemsActivity.this,PersonInformationActivity.class);
-                intent.putExtra("userID",userID);
-                startActivity(intent);
+                if(GrandSum>0){
+                    Intent intent=new Intent(TotalItemsActivity.this,PersonInformationActivity.class);
+                    intent.putExtra("userID",userID);
+                    startActivity(intent);
+                }
+                else Toast.makeText(TotalItemsActivity.this, "Try adding some products to cart first...", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -95,7 +99,8 @@ public class TotalItemsActivity extends AppCompatActivity {
                     }
                 });
                 Picasso.get().load(model.getImage()).into(holder.image);
-                txtGrandTotal.setText(Integer.toString(GrandSum));
+                txtGrandTotal.setText(Integer.toString(GrandSum)+".00");
+                txtCartTotal.setText(Integer.toString(GrandSum)+".00");
             }
 
             @NonNull
