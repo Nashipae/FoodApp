@@ -1,12 +1,16 @@
 package android.example.foodapp;
 
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.example.foodapp.Model.Products;
 import android.example.foodapp.Model.Users;
 import android.example.foodapp.viewHolder.ProductViewHolder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseRecyclerOptions<Products> options;
     private String userID;
     private Users user;
-    private ImageButton homeType0,homeType1,homeType2;
+    private ImageButton homeType0,homeType1,homeType2,ham_icon;
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -107,10 +111,21 @@ public class HomeActivity extends AppCompatActivity {
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Home");
+//        toolbar.setTitle("Home");
+//
+//        toolbar.setNavigationIcon(R.drawable.hamburger_icon);
+//        setSupportActionBar(toolbar);
 
-        toolbar.setNavigationIcon(R.drawable.hamburger_icon);
-        setSupportActionBar(toolbar);
+         ham_icon= findViewById(R.id.ham_icon);
+         ham_icon.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                 if(!drawer.isDrawerOpen(Gravity.LEFT)) drawer.openDrawer(Gravity.LEFT);
+                 else drawer.closeDrawer(Gravity.LEFT);
+             }
+         });
+
 
 
 
@@ -126,6 +141,9 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -155,23 +173,36 @@ public class HomeActivity extends AppCompatActivity {
 //                        break;
 //                    }
 
-//                    case R.id.nav_share:{
-//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
+                    case R.id.nav_share:{
+                        try {
+                            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                            shareIntent.setType("text/plain");
+                            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+                            String shareMessage= "\nLet me recommend you this application\n\n";
+                            shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                            startActivity(Intent.createChooser(shareIntent, "choose one"));
+                        } catch(Exception e) {
+                            //e.toString();
+                        }
+                        break;
+                    }
 
-//                    case R.id.nav_contact:{
-//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
+                    case R.id.nav_contact:{
+                        Intent intent= new Intent(HomeActivity.this,ContactUsActivity.class);
+                        startActivity(intent);
+                        break;
+                    }
 
-//                    case R.id.nav_rate:{
-//                        Intent intent= new Intent(HomeActivity.this,UserProfileActivity.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
+                    case R.id.nav_rate:{
+                        try{
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+getPackageName())));
+                        }
+                        catch (ActivityNotFoundException e){
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName())));
+                        }
+                        break;
+                    }
 
                     case R.id.nav_logout:{
                         Intent intent= new Intent(HomeActivity.this,LoginActivity.class);
