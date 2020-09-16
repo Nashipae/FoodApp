@@ -98,6 +98,15 @@ public class TotalItemsActivity extends AppCompatActivity {
                         ;
                     }
                 });
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(TotalItemsActivity.this, ProductDescriptionActivity.class);
+                        intent.putExtra("userID",userID);
+                        intent.putExtra("pid",model.getPid());
+                        startActivity(intent);
+                    }
+                });
                 Picasso.get().load(model.getImage()).into(holder.image);
                 txtGrandTotal.setText(Integer.toString(GrandSum)+".00");
                 txtCartTotal.setText(Integer.toString(GrandSum)+".00");
