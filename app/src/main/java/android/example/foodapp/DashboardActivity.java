@@ -111,6 +111,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void EditUserInfo() {
         if(imageURI!=null){
+            Toast.makeText(this, "Please wait saving changes ...", Toast.LENGTH_SHORT).show();
             final StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("userImages").child(userID + ".jpg");
             final UploadTask uploadTask = storageReference.putFile(imageURI);
             uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -121,7 +122,7 @@ public class DashboardActivity extends AppCompatActivity {
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(DashboardActivity.this, "Image uploaded successfully", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DashboardActivity.this, "Image uploaded successfully", Toast.LENGTH_SHORT).show();
                     Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                         @Override
                         public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
