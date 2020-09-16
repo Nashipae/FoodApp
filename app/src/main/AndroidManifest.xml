@@ -37,7 +37,6 @@
         <activity android:name=".NewPasswordActivity" />
         <activity android:name=".EnterOTPActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".UserProfileActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

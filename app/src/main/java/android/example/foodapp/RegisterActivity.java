@@ -112,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
                     else if(!(password.equals(passwordConfirm)))Toast.makeText(RegisterActivity.this,"Passwords do not match",Toast.LENGTH_SHORT).show();
                     else if((password.length()<8  || !isValidPassword(password)))Toast.makeText(RegisterActivity.this,"Password must contain minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character,",Toast.LENGTH_LONG).show();
                     else {
-                        Users userData = new Users(username,password,phone,city,pin,Address);
+                        Users userData = new Users(username,password,phone,city,pin,Address,"https://firebasestorage.googleapis.com/v0/b/foodapp-d3a6f.appspot.com/o/userImages%2Fprofile.png?alt=media&token=e08d6e50-021a-410a-86ec-6e27e6123bf1");
 //                        Map<String,Object> userMap = userData.toMap();
                         RootRef.child(dbname).child(phone).setValue(userData)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -6,19 +6,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Users {
-    private String username,password,phone,city,pin,address;
+    private String username,password,phone,city,pin,address,image;
     public Users() {
         this.username = "default";
         this.password = "default";
     }
 
-    public Users(String username, String password, String phone, String city, String pin, String address) {
+    public Users(String username, String password, String phone, String city, String pin, String address, String image) {
         this.username = username;
         this.password = password;
         this.phone = phone;
         this.city = city;
         this.pin = pin;
         this.address = address;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getAddress() {

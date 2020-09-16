@@ -48,9 +48,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeActivity extends AppCompatActivity {
 
     private TextView txtUserName, txtUserPhone;
+    private CircleImageView userImage;
     private Menu menu;
     private AppBarConfiguration mAppBarConfiguration;
     private DatabaseReference UsersRef;
@@ -236,6 +239,7 @@ public class HomeActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         txtUserName = headerView.findViewById(R.id.nav_user_name);
         txtUserPhone = headerView.findViewById(R.id.user_phone_number);
+        userImage = headerView.findViewById(R.id.profile_image);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
@@ -257,6 +261,7 @@ public class HomeActivity extends AppCompatActivity {
                     user = snapshot.child(userID).getValue(Users.class);
                     txtUserName.setText(user.getUsername());
                     txtUserPhone.setText(user.getPhone());
+                    Picasso.get().load(user.getImage()).into(userImage);
                 }
             }
             @Override
