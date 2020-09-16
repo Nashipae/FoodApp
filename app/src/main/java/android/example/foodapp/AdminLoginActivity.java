@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.example.foodapp.viewHolder.AdminActiveOrdersViewHolder;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.method.HideReturnsTransformationMethod;
@@ -68,7 +69,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 if(snapshot.child(adminID.getText().toString()).exists()){
                     if(snapshot.child(adminID.getText().toString()).child("password").getValue().equals(adminPassword.getText().toString())){
                         Toast.makeText(AdminLoginActivity.this, "Authenticated", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AdminLoginActivity.this, AdminProductTypeActivity.class);
+                        Intent intent = new Intent(AdminLoginActivity.this, AdminTrackOrdersActivivty.class);
                         startActivity(intent);
                     }
                     else {
