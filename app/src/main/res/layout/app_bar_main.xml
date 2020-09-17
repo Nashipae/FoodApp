@@ -29,6 +29,9 @@
                 android:id="@+id/ham_icon"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
+                android:layout_marginTop="15dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
                 android:background="?attr/colorPrimary"
 
                 android:src="@drawable/hamburger_icon">
@@ -37,9 +40,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
+                android:text="@string/home_header_text"
                 android:textSize="20sp"
                 android:textColor="#FFFFFF"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:layout_marginLeft="20dp"></TextView>
 

@@ -8,7 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,28 +31,30 @@
                 app:layout_constraintTop_toTopOf="parent"></ImageView>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/enter_otp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Please enter your verification code"
+                android:text="@string/enter_otp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"></TextView>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/four_digit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="10dp"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="3dp"
-                android:text="A four digit verification code has been sent to your registered mobile number"
+                android:textAlignment="center"
+                android:text="@string/four_digit"
                 android:fontFamily="@font/poppins_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,14 +144,14 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/resend_otp"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
                 android:background="@null"
                 android:minHeight="0dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Resend OTP"
+                android:text="@string/resend_otp"
                 android:fontFamily="@font/poppins_medium"
 
                 android:textAllCaps="false"
@@ -159,17 +162,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout10"></Button>
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/change_phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:minHeight="0dp"
-                android:text="Change Your Mobile Number"
+                android:text="@string/change_phone_number"
                 android:layout_gravity="center_horizontal"
                 android:textAllCaps="false"
                 android:textColor="#000000"
                 android:fontFamily="@font/poppins_medium"
-
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -200,7 +202,7 @@
                 android:layout_marginBottom="10dp"
                 android:width="300dp"
                 android:background="@drawable/btn_rounded"
-                android:text="Next"
+                android:text="@string/next_btn"
                 android:drawableRight="@drawable/login_btn_arrow"
                 android:paddingLeft="35dp"
                 android:textAllCaps="false"

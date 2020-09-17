@@ -30,9 +30,10 @@
         </ImageView>
 
         <TextView
+            android:id="@+id/order_succesfully_placed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your order has been placed succesfully..!!"
+            android:text="@string/order_succesfully_placed"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="15sp"
@@ -44,9 +45,10 @@
         </TextView>
 
         <TextView
+            android:id="@+id/be_on_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="We will be reached on time."
+            android:text="@string/be_on_time"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="15sp"
@@ -58,9 +60,10 @@
         </TextView>
 
         <TextView
+            android:id="@+id/thank_you"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thank You!!"
+            android:text="@string/thank_you"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="15sp"
@@ -75,9 +78,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/done_order_home"
-            android:text="Back to Home"
+            android:text="@string/done_order_home"
+            android:background="@drawable/btn_rounded"
+            android:paddingHorizontal="20dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins_medium"
+            android:textAllCaps="false"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
             />
 
     </LinearLayout>

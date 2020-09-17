@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">फूड ऐप</string>
+    <string name="welcomeText">स्वागत हे</string>
+    <string name="select_language_text">भाषा का चयन करें</string>
+    <string name="Hindi">हिन्दी</string>
+    <string name="English">अंग्रेज़ी</string>
+    <string name="startBtn">शुरू हो जाओ</string>
+
+
+    <string name="signIn">साइन इन करें</string>
+    <string name="phone">फोन नंबर दर्ज</string>
+    <string name="password">पास वर्ड दर्ज करें</string>
+<!--    <string name="showHideBtn">प्रदर्शन</string>-->
+    <string name="save_login">मुझे याद रखना</string>
+    <string name="forgotPassword">पासवर्ड भूल गए?</string>
+    <string name="loginBtn">लॉग इन करें</string>
+    <string name="textView">खाता नहीं है? </string>
+    <string name="signupBtn">अभी साइनअप करें!</string>
+    <string name="admin_text">क्या आप एक व्यवस्थापक हैं? </string>
+    <string name="adminLogin">यहां लॉगिन करें!</string>
+
+
+    <string name="registerBtn">रजिस्टर करें</string>
+    <string name="username">नाम दर्ज</string>
+    <string name="city">शहर का नाम दर्ज करें</string>
+    <string name="pincode">पिन कोड दर्ज करें</string>
+    <string name="passwordConfirm">पासवर्ड की पुष्टि कीजिये</string>
+    <string name="doneBtn">आगे बढ़ें</string>
+
+
+    <string name="confirmation_forgot_password">कृपया अपने पंजीकृत मोबाइल नंबर की पुष्टि करें</string>
+    <string name="sending_code">हम आपके पंजीकृत मोबाइल नंबर पर एक सत्यापन कोड भेजेंगे</string>
+
+
+    <string name="enter_otp">अपना सत्यापन कोड दर्ज करें</string>
+    <string name="four_digit">आपके पंजीकृत मोबाइल नंबर पर चार अंकों का सत्यापन कोड भेजा गया है</string>
+    <string name="resend_otp">ओटीपी पुनः भेजें</string>
+    <string name="change_phone_number">अपना फ़ोन नंबर बदलें</string>
+    <string name="next_btn">आगे बढ़ें</string>
+
+
+    <string name="enter_new_password_text">कृपया एक नया पासवर्ड दर्ज करें</string>
+    <string name="enter_new_password">नया पासवर्ड दर्ज करें</string>
+    <string name="confirm_new_password">नए पासवर्ड की पुष्टि करें</string>
+
+
+    <string name="contact_us_text">संपर्क करें</string>
+    <string name="My_Contact_Text">मेरे संपर्क</string>
+
+
+    <string name="select_lang_text">भाषा का चयन करें</string>
+    <string name="save_lang_btn">सहेजें</string>
+
+
+    <string name="edit_profile_text">अपनी प्रोफ़ाइल बदलें</string>
+    <string name="dashboard_name">अपना नाम बदलो</string>
+    <string name="dashboard_city">शहर का नाम बदलें</string>
+    <string name="dashboard_pin">पिन कोड बदलें</string>
+    <string name="dashboard_address">अपना पता बदलें</string>
+    <string name="save_changes_btn">सहेजें</string>
+
+    <string name="order_succesfully_placed">आपका आइटम सक्सेसफुल रखा गया है .. !!</string>
+    <string name="be_on_time">आपका सामान समय पर पहुंच जाएगा।</string>
+    <string name="thank_you">धन्यवाद!!</string>
+    <string name="done_order_home">वापस आना</string>
+
+
+    <string name="payment_type_text"></string>
+    <string name="cash_on_delivery_option">डिलवरी पर नकदी</string>
+    <string name="online_payment_option">ऑनलाइन भुगतान</string>
+    <string name="continueBtn">आगे बढ़ें</string>
+
+
+    <string name="person_info_text">आपकी जानकारी</string>
+    <string name="info_fullName">आपका पूरा नाम</string>
+    <string name="info_address">अपना पता दर्ज करें</string>
+    <string name="info_country">देश</string>
+
+
+    <string name="shipping_text">डिलिवरी का पता</string>
+    <string name="total_price_text">कुल मूल्य</string>
+    <string name="tax_text">कर</string>
+    <string name="delivery_charge_text">डिलीवरी चार्ज</string>
+    <string name="changeOrder">ऑर्डर बदलना चाहते हैं</string>
+    <string name="placeOrder">आदेश दो</string>
+
+
+    <string name="product_description_text">उत्पाद वर्णन</string>
+    <string name="viewCart">शॉपिंग कार्ट पर जाएं</string>
+    <string name="buyNow">कार्ट में डालें</string>
+
+
+    <string name="order_on_place_button">आर्डर करें</string>
+
+
+    <string name="home_header_text">होम</string>
+
+
+    <string name="cartRemoveBtn">सामान हटाओ</string>
+
+
+    <string name="prodViewMore">उत्पाद वर्णन</string>
+
+
+    <string name="nav_dashboard">विवरणिका बदले</string>
+    <string name="nav_language">भाषा बदलो</string>
+    <string name="delivery_history">डिलीवरी का इतिहास</string>
+    <string name="nav_share">ऐप शेयर करें</string>
+    <string name="nav_contact">संपर्क करें</string>
+    <string name="nav_rate">हमें रेटिंग दें</string>
+    <string name="nav_logout">लॉग आउट</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+</resources>

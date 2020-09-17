@@ -7,22 +7,48 @@
     android:background="#cae6ca"
     tools:context=".ProductDescriptionActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/product_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/product_description_text"
+                android:paddingVertical="5dp"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:layout_weight="0.035"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_medium">
+            </TextView>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#cae6ca"
-        android:paddingVertical="40dp"
-        android:paddingHorizontal="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_weight="0.9"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="20dp">
+
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:background="@drawable/btn_rounded"
             android:layout_gravity="center_horizontal"
             android:paddingVertical="40dp"
@@ -48,7 +74,9 @@
                 android:layout_height="wrap_content"
                 android:text="dmvnfmvnfnfn  dcdvfvb"
                 android:textSize="20sp"
+                android:layout_marginTop="20dp"
                 android:textColor="#FFFFFF"
+                android:textAllCaps="true"
                 android:fontFamily="@font/poppins_medium"
                 android:textAlignment="center"
                 android:layout_gravity="center"></TextView>
@@ -80,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:text="10Kg"
                     android:textSize="20sp"
-                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textColor="#FF0000"
                     android:fontFamily="@font/poppins_medium"
                     android:textAlignment="textStart"
                     android:layout_gravity="center"
@@ -95,10 +124,11 @@
                 android:layout_height="wrap_content"
                 android:text="bvbfvnbcbvnfbvbdbcf"
                 android:maxWidth="1dp"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textColor="#FFFFFF"
+                android:layout_marginTop="7dp"
                 android:textAlignment="center"
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/poppins_light"
                 android:layout_gravity="center"
                 android:paddingHorizontal="20dp">
             </TextView>
@@ -119,7 +149,6 @@
                 android:backgroundTint="@color/colorPrimary"
                 android:background="@drawable/btn_rounded"
                 android:layout_centerVertical="true"
-
                 android:src="@drawable/remove_item">
             </ImageButton>
             <TextView
@@ -154,9 +183,9 @@
                 <Button
                     android:id="@+id/viewCart"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:text="Go to cart"
-                    android:textSize="15sp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/viewCart"
+                    android:textSize="19sp"
                     android:textAllCaps="false"
                     android:layout_marginRight="30dp"
                     android:background="@drawable/btn_rounded"
@@ -171,14 +200,14 @@
                 <Button
                     android:id="@+id/buyNow"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:text="Add to cart"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buyNow"
                     android:textAllCaps="false"
                     android:background="@drawable/btn_rounded"
                     android:paddingHorizontal="15dp"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp"
+                    android:textSize="18sp"
                     android:layout_weight="0.5"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="5dp">
@@ -188,6 +217,10 @@
 
 
     </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

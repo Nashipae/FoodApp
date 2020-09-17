@@ -1,5 +1,124 @@
 <resources>
     <string name="app_name">Food App</string>
+    <string name="welcomeText">WELCOME</string>
+    <string name="select_language_text">Select The Language</string>
+    <string name="Hindi">Hindi</string>
+    <string name="English">English</string>
+    <string name="startBtn">Get Started</string>
+
+
+    <string name="signIn">Sign In</string>
+    <string name="phone">Enter phone number</string>
+    <string name="password">Enter password</string>
+<!--    <string name="showHideBtn">Show</string>-->
+    <string name="save_login">Remember me</string>
+    <string name="forgotPassword">Forgot Password?</string>
+    <string name="loginBtn">Log in</string>
+    <string name="textView">Don\'t have an account? </string>
+    <string name="signupBtn">Sign up now!</string>
+    <string name="admin_text">Are you an Admin? </string>
+    <string name="adminLogin">Login Here!</string>
+
+
+    <string name="registerBtn">Register</string>
+    <string name="username">Enter name</string>
+    <string name="city">Enter city name</string>
+    <string name="pincode">Enter PIN Code</string>
+    <string name="passwordConfirm">Confirm password</string>
+    <string name="doneBtn">Done</string>
+
+
+    <string name="confirmation_forgot_password">Please confirm your registered Mobile Number</string>
+    <string name="sending_code">We will send a verification code to your registered Mobile Number</string>
+
+
+    <string name="enter_otp">Please enter your verification code</string>
+    <string name="four_digit">A four digit verification code has been sent to your registered mobile number</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="change_phone_number">Change Your Phone Number</string>
+    <string name="next_btn">Next</string>
+
+
+    <string name="enter_new_password_text">Please enter a new Password</string>
+    <string name="enter_new_password">Enter new Password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+
+    <string name="contact_us_text">Contact Us</string>
+    <string name="My_Contact_Text">My Contact</string>
+
+
+    <string name="select_lang_text">Select The Language</string>
+    <string name="save_lang_btn">Save</string>
+
+
+    <string name="edit_profile_text">Edit Your Profile</string>
+    <string name="dashboard_name">Change Your Name</string>
+    <string name="dashboard_city">Change City Name</string>
+    <string name="dashboard_pin">Change PIN Code</string>
+    <string name="dashboard_address">Change Address</string>
+    <string name="save_changes_btn">Save Changes</string>
+
+
+    <string name="order_succesfully_placed">Your order has been placed succesfully..!!</string>
+    <string name="be_on_time">We will be reached on time.</string>
+    <string name="thank_you">Thank You!!</string>
+    <string name="done_order_home">Back to Home</string>
+
+
+    <string name="payment_type_text">Payment Type</string>
+    <string name="cash_on_delivery_option">Cash on Delivery</string>
+    <string name="online_payment_option">Online Payment</string>
+    <string name="continueBtn">Continue</string>
+
+
+    <string name="person_info_text">Person Information</string>
+    <string name="info_fullName">Your Full Name</string>
+    <string name="info_address">Enter Your Address</string>
+    <string name="info_country">Country</string>
+
+
+
+    <string name="shipping_text">Shipping Address</string>
+    <string name="total_price_text">Total</string>
+    <string name="tax_text">Tax</string>
+    <string name="delivery_charge_text">Delivery Charge</string>
+    <string name="changeOrder">Change Order</string>
+    <string name="placeOrder">Place Order</string>
+
+
+    <string name="product_description_text">Product Description</string>
+    <string name="viewCart">Go to cart</string>
+    <string name="buyNow">Add to cart</string>
+
+
+    <string name="order_on_place_button">Order On Place</string>
+
+
+    <string name="home_header_text">Home</string>
+
+
+    <string name="cartRemoveBtn">Remove Item</string>
+
+
+    <string name="prodViewMore">View More</string>
+
+
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_language">Language</string>
+    <string name="delivery_history">Delivery History</string>
+    <string name="nav_share">Share With Friends</string>
+    <string name="nav_contact">Contact Us</string>
+    <string name="nav_rate">Rate Us</string>
+    <string name="nav_logout">Log out</string>
+
+
+
+
+
+
+
+
+
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -34,11 +34,12 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/shipping_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Shipping Address"
+                    android:text="@string/shipping_text"
                     android:textColor="#FFFFFF"
                     android:textSize="25sp"
                     android:textStyle="bold"></TextView>
@@ -98,7 +99,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total"
+                        android:text="@string/total_price_text"
                         android:textColor="@color/colorPrimary"
                         android:layout_weight="0.8"
                         android:textSize="22sp">
@@ -122,7 +123,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tax"
+                        android:text="@string/tax_text"
                         android:textColor="@color/colorPrimary"
                         android:layout_weight="0.8"
                         android:textSize="22sp">
@@ -146,7 +147,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Delivery Charge"
+                        android:text="@string/delivery_charge_text"
                         android:textColor="@color/colorPrimary"
                         android:layout_weight="0.8"
                         android:textSize="22sp">
@@ -170,7 +171,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Grand Total"
+                        android:text="@string/delivery_charge_text"
                         android:textColor="@color/colorPrimary"
                         android:layout_weight="0.8"
                         android:textSize="22sp">
@@ -199,7 +200,7 @@
                     android:id="@+id/changeOrder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Change Order"
+                    android:text="@string/changeOrder"
                     android:textSize="22sp"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:textAllCaps="false"
@@ -215,7 +216,7 @@
                     android:id="@+id/placeOrder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Place Order"
+                    android:text="@string/placeOrder"
                     android:textSize="22sp"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:textAllCaps="false"

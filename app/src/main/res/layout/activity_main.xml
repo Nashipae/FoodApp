@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="WELCOME"
+                android:text="@string/welcomeText"
                 android:textAlignment="center"
                 android:fontFamily="@font/poppins_bold"
                 android:layout_gravity="center_horizontal"
@@ -58,12 +58,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/hr1">
 
                 <TextView
-
+                    android:id="@+id/select_language_text"
                     android:layout_width="wrap_content"
                     android:layout_height="20pt"
                     android:gravity="center_vertical"
                     android:paddingLeft="10pt"
-                    android:text="Select The Language"
+                    android:text="Select Language/भाषा चुनें"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_weight="5"
                     android:textColor="#000000"
@@ -110,7 +110,7 @@
                     android:paddingVertical="10dp"
                     android:paddingLeft="23dp"
                     android:layout_weight="0.5"
-                    android:text="Hindi"
+                    android:text="हिन्दी"
                     android:fontFamily="@font/poppins_medium"
                     android:textSize="23sp" />
 
@@ -133,7 +133,7 @@
                     android:paddingVertical="10dp"
                     android:layout_weight="0.5"
                     android:paddingLeft="23dp"
-                    android:text="English"
+                    android:text="@string/English"
                     android:fontFamily="@font/poppins_medium"
                     android:textSize="23sp" />
             </RadioGroup>
@@ -150,7 +150,7 @@
                     android:width="300dp"
                     android:paddingLeft="45dp"
                     android:background="@drawable/btn_rounded"
-                    android:text="Get Started"
+                    android:text="@string/startBtn"
                     android:fontFamily="@font/poppins_bold"
                     android:layout_gravity="center"
                     android:textAllCaps="false"

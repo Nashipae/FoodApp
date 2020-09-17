@@ -7,12 +7,26 @@
     android:orientation="vertical"
     tools:context=".ContactUsActivity">
 
+    <TextView
+        android:id="@+id/contact_us_text"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="@string/contact_us_text"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textAlignment="gravity"
+        android:background="@color/colorPrimary">
+    </TextView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:orientation="horizontal">
+
 
         <ImageView
             android:layout_width="wrap_content"
@@ -31,13 +45,14 @@
             android:layout_weight="0.8">
 
             <TextView
+                android:id="@+id/My_Contact_Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
-                android:text="My Contact">
+                android:text="@string/My_Contact_Text">
 
             </TextView>
             <TextView

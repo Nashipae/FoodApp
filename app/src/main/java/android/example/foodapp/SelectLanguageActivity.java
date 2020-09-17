@@ -27,5 +27,7 @@ public class SelectLanguageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

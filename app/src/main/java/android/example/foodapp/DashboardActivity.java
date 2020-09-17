@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +54,7 @@ public class DashboardActivity extends AppCompatActivity {
         pin = findViewById(R.id.dashboard_pin);
         address = findViewById(R.id.dashboard_address);
         save_changes_btn=findViewById(R.id.save_changes_btn);
-        image = findViewById(R.id.profile_image);
+        image = findViewById(R.id.profile_image_dashboard);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override

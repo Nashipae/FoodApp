@@ -6,55 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".SelectLanguageActivity">
 
-    <TableRow
-        android:id="@+id/hr1"
+    <TextView
+        android:id="@+id/select_lang_text"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#445"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="55dp"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
-
-    <LinearLayout
-        android:id="@+id/selectingLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="55dp"
-        app:layout_constraintTop_toBottomOf="@+id/hr1">
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="20pt"
-            android:gravity="center_vertical"
-            android:paddingLeft="10pt"
-            android:text="Select The Language"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_weight="5"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:layout_gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/hr1"
-            tools:layout_editor_absoluteX="28dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/language">
-        </ImageView>
-    </LinearLayout>
+        android:layout_height="65dp"
+        android:text="@string/select_lang_text"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textAlignment="gravity"
+        android:background="@color/colorPrimary">
+    </TextView>
 
     <TableRow
         android:id="@+id/hr2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#444"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
+        android:layout_marginTop="100dp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -73,7 +43,7 @@
             android:layoutDirection="rtl"
             android:paddingVertical="10dp"
             android:paddingLeft="23dp"
-            android:text="Hindi"
+            android:text="हिन्दी"
             android:fontFamily="@font/poppins_medium"
             android:textSize="23sp" />
 
@@ -98,6 +68,13 @@
             android:text="English"
             android:fontFamily="@font/poppins_medium"
             android:textSize="23sp" />
+
+        <TableRow
+            android:id="@+id/hr4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#444"
+            android:layout_marginTop="0dp" />
     </RadioGroup>
 
     <Button
@@ -107,7 +84,7 @@
         android:paddingHorizontal="40dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/btn_rounded"
-        android:text="Save"
+        android:text="@string/save_lang_btn"
         android:layout_marginBottom="50dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_bold"
