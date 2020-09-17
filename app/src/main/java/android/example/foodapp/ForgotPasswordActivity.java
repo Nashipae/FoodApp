@@ -52,6 +52,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 if(snapshot.child(dbname).child(phone).exists()){
                     Intent intent = new Intent(ForgotPasswordActivity.this, EnterOTPActivity.class);
                     intent.putExtra("USERPHONE",phone);
+                    intent.putExtra("userID",phone);
                     startActivity(intent);
                 }
                 else {
