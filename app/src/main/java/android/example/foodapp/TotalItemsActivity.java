@@ -94,8 +94,10 @@ public class TotalItemsActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Toast.makeText(TotalItemsActivity.this, "Item removed from cart...", Toast.LENGTH_SHORT).show();
                                     }
-                                })
-                        ;
+                                });
+                        GrandSum-=Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
+                        txtGrandTotal.setText(Integer.toString(GrandSum)+".00");
+                        txtCartTotal.setText(Integer.toString(GrandSum)+".00");
                     }
                 });
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
