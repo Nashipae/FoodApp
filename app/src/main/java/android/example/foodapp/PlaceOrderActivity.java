@@ -175,7 +175,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
             orderItem.put("total", Integer.toString(Integer.valueOf(items.getPrice())*Integer.valueOf(items.getQuantity())));
             orderItem.put("orderOnDate",timestamp);
             orderItem.put("orderReceivedDate","NULL");
-            orderItem.put("payment","COD");
+            orderItem.put("payment",mode);
             orderItem.put("status","Order Booked");
             orderItem.put("user",userID);
             orderItem.put("pid",items.getPid());
