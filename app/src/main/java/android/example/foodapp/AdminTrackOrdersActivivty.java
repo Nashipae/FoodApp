@@ -33,6 +33,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class AdminTrackOrdersActivivty extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -123,8 +126,14 @@ public class AdminTrackOrdersActivivty extends AppCompatActivity {
                             Toast.makeText(AdminTrackOrdersActivivty.this, "updated status", Toast.LENGTH_SHORT).show();
                         }
                         else if(status==1){
+                            Calendar calendar = Calendar.getInstance();
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MMM dd");
+                            String todayDate =  simpleDateFormat.format(calendar.getTime());
+
                             OrderRef.child(model.getOrderID()).child("status").setValue("Delivered");
+                            OrderRef.child(model.getOrderID()).child("orderReceivedDate").setValue(todayDate);
                             userOrderRef.child(model.getUser()).child(model.getOrderID()).child("status").setValue("Delivered");
+                            userOrderRef.child(model.getUser()).child(model.getOrderID()).child("orderReceivedDate").setValue(todayDate);
                             Toast.makeText(AdminTrackOrdersActivivty.this, "updated status", Toast.LENGTH_SHORT).show();
                         }
                         else {
