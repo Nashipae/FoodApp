@@ -99,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
         allTypes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                homeType0.setImageResource(R.drawable.cow);
+                homeType0.setImageResource(R.drawable.cow_dull);
                 homeType1.setImageResource(R.drawable.fish_dull);
                 homeType2.setImageResource(R.drawable.bull_dull);
                 changeQuery("all");
