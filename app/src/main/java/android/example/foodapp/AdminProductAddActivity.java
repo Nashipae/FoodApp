@@ -88,7 +88,7 @@ public class AdminProductAddActivity extends AppCompatActivity {
 
     private void StoreInfo() {
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MMM dd hh:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MMM dd HH:mm:ss");
         String currentDate = simpleDateFormat.format(calendar.getTime());
         prodKey = currentDate;
 

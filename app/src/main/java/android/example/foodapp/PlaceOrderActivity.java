@@ -159,7 +159,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
     private void ValidateOrder() {
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MMM dd hh:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy MMM dd HH:mm:ss");
         String timestamp = simpleDateFormat.format(calendar.getTime());
         DatabaseReference OrderRef = FirebaseDatabase.getInstance().getReference().child("Orders");
         final DatabaseReference CartRef = FirebaseDatabase.getInstance().getReference().child("CartList").child("User View").child(userID);
