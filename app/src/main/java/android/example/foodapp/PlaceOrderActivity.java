@@ -1,13 +1,16 @@
 package android.example.foodapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.example.foodapp.Model.Cart;
 import android.example.foodapp.viewHolder.OrderViewHolder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,11 +40,14 @@ import java.util.Vector;
 public class PlaceOrderActivity extends AppCompatActivity {
 
     private Button changeOrder,placeOrder;
-    private String userID;
+    private String userID,mode,status,transactionNote,name,upiId,amount;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private TextView txtGrandTotal, txtCartTotal, txtUserAddress;
     private Integer GrandSum=0;
+    String GOOGLE_PAY_PACKAGE_NAME = "com.google.android.apps.nbu.paisa.user";
+    int GOOGLE_PAY_REQUEST_CODE = 123;
+    Uri uri;
     FirebaseRecyclerAdapter<Cart, OrderViewHolder> adapter;
     FirebaseRecyclerOptions<Cart> options;
     private ArrayList<Cart> cartItems = new ArrayList<Cart>();
@@ -52,9 +58,13 @@ public class PlaceOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_order);
 
         userID = getIntent().getStringExtra("userID");
+        mode = getIntent().getStringExtra("mode");
+        Log.d("Debug mode: ",mode);
+        name = "SANJEEV KUMAR VERMA VANDHNA VERMA";
+        upiId = "skv.chip@okicici";
         changeOrder=findViewById(R.id.changeOrder);
         placeOrder=findViewById(R.id.placeOrder);
-
+        transactionNote = "Test payment";
 
         txtGrandTotal = findViewById(R.id.cartGrandTotal);
         txtCartTotal = findViewById(R.id.cartTotalPrice);
@@ -78,10 +88,58 @@ public class PlaceOrderActivity extends AppCompatActivity {
         placeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ValidateOrder();
+                if(mode.equals("online")){
+                    Log.d("Debug mode: ",mode);
+                    onlinePayment();
+                }
+                else ValidateOrder();
             }
         });
 
+    }
+
+    private void onlinePayment() {
+        uri = new Uri.Builder()
+                .scheme("upi")
+                .authority("pay")
+                .appendQueryParameter("pa", upiId)
+                .appendQueryParameter("pn", name)
+                .appendQueryParameter("tn", transactionNote)
+                .appendQueryParameter("am", amount)
+                .appendQueryParameter("cu", "INR")
+                .build();
+
+        if(isAppInstalled()){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(uri);
+            intent.setPackage(GOOGLE_PAY_PACKAGE_NAME);
+            startActivityForResult(intent, GOOGLE_PAY_REQUEST_CODE);
+        }
+        else {
+            Toast.makeText(this, "Google pay not installed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode,  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data!=null){
+            status = data.getStringExtra("Status").toLowerCase();
+        }
+        if((RESULT_OK == resultCode) && status.equals("success") ){
+            Toast.makeText(this, "Transaction successful", Toast.LENGTH_SHORT).show();
+            ValidateOrder();
+        } else {
+            Toast.makeText(this, "Transaction failed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isAppInstalled() {
+        try {
+            this.getPackageManager().getApplicationInfo(GOOGLE_PAY_PACKAGE_NAME,0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     private void setUserAddress() {
@@ -150,9 +208,6 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
                 }
             });
-
-
-//            orderID,quantity,price,total,orderOnDate, orderReceivedDate, payment, status,pid
         }
     }
 
@@ -179,6 +234,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 GrandSum += Integer.parseInt(model.getQuantity())*Integer.parseInt(model.getPrice());
                 txtGrandTotal.setText(Integer.toString(GrandSum)+".00");
                 txtCartTotal.setText(Integer.toString(GrandSum)+".00");
+                amount = Integer.toString(GrandSum);
                 Picasso.get().load(model.getImage()).into(holder.image);
             }
 

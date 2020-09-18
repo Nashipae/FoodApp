@@ -18,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
         <activity android:name=".AdminTrackOrdersActivivty"></activity>
         <activity android:name=".UserDeliveryHistoryActivity" />
         <activity android:name=".ContactUsActivity" />
