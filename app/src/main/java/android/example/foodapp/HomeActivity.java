@@ -180,12 +180,12 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     }
-                    case R.id.nav_language:{
-                        Intent intent= new Intent(HomeActivity.this,SelectLanguageActivity.class);
-                        intent.putExtra("userID",userID);
-                        startActivity(intent);
-                        break;
-                    }
+//                    case R.id.nav_language:{
+//                        Intent intent= new Intent(HomeActivity.this,SelectLanguageActivity.class);
+//                        intent.putExtra("userID",userID);
+//                        startActivity(intent);
+//                        break;
+//                    }
                     case R.id.delivery_history:{
                         Intent intent= new Intent(HomeActivity.this,UserDeliveryHistoryActivity.class);
                         intent.putExtra("userID",userID);

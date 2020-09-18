@@ -112,6 +112,17 @@
     <string name="nav_logout">Log out</string>
 
 
+    <string name="delivery_history_text">Delivery History</string>
+    <string name="order_date_text">Order Date</string>
+    <string name="delivery_date_text">Delivery Date</string>
+    <string name="status_text">Status</string>
+    <string name="quantity_text">Quantity</string>
+    <string name="price_per_item_text">Price per item</string>
+
+
+    <string name="all_category">ALL</string>
+
+
 
 
 
