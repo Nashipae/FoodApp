@@ -69,7 +69,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 if(snapshot.child(adminID.getText().toString()).exists()){
                     if(snapshot.child(adminID.getText().toString()).child("password").getValue().equals(adminPassword.getText().toString())){
                         Toast.makeText(AdminLoginActivity.this, "Authenticated", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(AdminLoginActivity.this, AdminTrackOrdersActivivty.class);
+                        Intent intent = new Intent(AdminLoginActivity.this, AdminChooseActivity.class);
                         startActivity(intent);
                     }
                     else {
