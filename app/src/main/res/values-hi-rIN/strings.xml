@@ -123,29 +123,7 @@
     <string name="all_category">समस्त</string>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <string name="send_otp_btn_text">OTP भेजें</string>
 
 
     <string name="title_activity_home">HomeActivity</string>

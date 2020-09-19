@@ -120,6 +120,9 @@
 
     <string name="all_category">ALL</string>
 
+
+    <string name="send_otp_btn_text">Send OTP</string>
+
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

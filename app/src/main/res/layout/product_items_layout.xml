@@ -88,16 +88,16 @@
         <Button
             android:id="@+id/prodViewMore"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             android:text="@string/prodViewMore"
             android:textAllCaps="false"
             android:background="@drawable/btn_rounded"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="12dp"
             android:fontFamily="@font/poppins_medium"
             android:textColor="#FFFFFF"
             android:layout_marginTop="5dp"
-            android:textSize="22sp"
-
+            android:paddingVertical="0dp"
+            android:textSize="18sp"
             android:layout_gravity="center_horizontal">
 
         </Button>
