@@ -56,7 +56,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
-
+        GrandSum=0;
         userID = getIntent().getStringExtra("userID");
         mode = getIntent().getStringExtra("mode");
         Log.d("Debug mode: ",mode);
@@ -82,6 +82,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 Intent intent=new Intent(PlaceOrderActivity.this,TotalItemsActivity.class);
                 intent.putExtra("userID",userID);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -193,9 +194,10 @@ public class PlaceOrderActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Toast.makeText(PlaceOrderActivity.this, "Order placed successfully", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(PlaceOrderActivity.this,HomeActivity.class);
+                                        Intent intent = new Intent(PlaceOrderActivity.this,OrderPlacedActivity.class);
                                         intent.putExtra("userID",userID);
                                         startActivity(intent);
+                                        finish();
                                     }
                                 });
                             }
@@ -255,7 +257,6 @@ public class PlaceOrderActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         if(adapter != null) {
-            Toast.makeText(this, "Displayed all available items in cart", Toast.LENGTH_SHORT).show();
             adapter.stopListening();
         }
     }

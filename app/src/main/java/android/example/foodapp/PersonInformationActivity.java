@@ -74,6 +74,7 @@ public class PersonInformationActivity extends AppCompatActivity {
                     Intent intent=new Intent(PersonInformationActivity.this,PaymentModeActivity.class);
                     intent.putExtra("userID",userID);
                     startActivity((intent));
+                    finish();
                 }
             }
         });

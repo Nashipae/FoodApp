@@ -25,6 +25,7 @@ public class OrderPlacedActivity extends AppCompatActivity {
                 Intent intent = new Intent(OrderPlacedActivity.this, HomeActivity.class);
                 intent.putExtra("userID",userID);
                 startActivity(intent);
+                finish();
             }
         });
     }

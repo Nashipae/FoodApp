@@ -33,6 +33,7 @@ public class PaymentModeActivity extends AppCompatActivity {
                 intent.putExtra("userID",userID);
                 intent.putExtra("mode",mode);
                 startActivity(intent);
+                finish();
             }
         });
     }

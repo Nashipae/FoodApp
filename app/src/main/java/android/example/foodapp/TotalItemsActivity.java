@@ -59,6 +59,7 @@ public class TotalItemsActivity extends AppCompatActivity {
                     Intent intent=new Intent(TotalItemsActivity.this,PersonInformationActivity.class);
                     intent.putExtra("userID",userID);
                     startActivity(intent);
+                    finish();
                 }
                 else Toast.makeText(TotalItemsActivity.this, "Try adding some products to cart first...", Toast.LENGTH_SHORT).show();
             }
