@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.example.foodapp.Model.Products;
 import android.example.foodapp.Model.Users;
 import android.example.foodapp.viewHolder.ProductViewHolder;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -92,6 +93,8 @@ public class HomeActivity extends AppCompatActivity {
                 homeType0.setImageResource(R.drawable.cow);
                 homeType1.setImageResource(R.drawable.fish_dull);
                 homeType2.setImageResource(R.drawable.bull_dull);
+                allTypes.setTextColor(getResources().getColor(R.color.colorPrimary));
+                allTypes.setBackgroundColor(Color.WHITE);
                 changeQuery("0");
             }
         });
@@ -102,6 +105,8 @@ public class HomeActivity extends AppCompatActivity {
                 homeType0.setImageResource(R.drawable.cow_dull);
                 homeType1.setImageResource(R.drawable.fish_dull);
                 homeType2.setImageResource(R.drawable.bull_dull);
+                allTypes.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                allTypes.setTextColor(Color.WHITE);
                 changeQuery("all");
             }
         });
@@ -112,6 +117,8 @@ public class HomeActivity extends AppCompatActivity {
                 homeType0.setImageResource(R.drawable.cow_dull);
                 homeType1.setImageResource(R.drawable.fish);
                 homeType2.setImageResource(R.drawable.bull_dull);
+                allTypes.setTextColor(getResources().getColor(R.color.colorPrimary));
+                allTypes.setBackgroundColor(Color.WHITE);
                 changeQuery("1");
             }
         });
@@ -122,6 +129,8 @@ public class HomeActivity extends AppCompatActivity {
                 homeType0.setImageResource(R.drawable.cow_dull);
                 homeType1.setImageResource(R.drawable.fish_dull);
                 homeType2.setImageResource(R.drawable.bull);
+                allTypes.setTextColor(getResources().getColor(R.color.colorPrimary));
+                allTypes.setBackgroundColor(Color.WHITE);
                 changeQuery("2");
             }
         });
