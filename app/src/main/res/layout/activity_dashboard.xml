@@ -20,7 +20,7 @@
             android:id="@+id/edit_profile_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Your Profile"
+            android:text="@string/edit_profile_text"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="25sp"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="22sp"
-            android:hint="change your name"
+            android:hint="@string/dashboard_name"
             android:layout_weight="0.05"
             android:textAlignment="center"
             android:inputType="textPersonName"
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="22sp"
-            android:hint="change city name"
+            android:hint="@string/dashboard_city"
             android:layout_weight="0.05"
             android:textAlignment="center"
             android:inputType="textPersonName"
@@ -103,10 +103,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="22sp"
-            android:hint="change PIN Code"
+            android:hint="@string/dashboard_pin"
             android:layout_weight="0.05"
             android:textAlignment="center"
-            android:inputType="number"
+            android:inputType="textPostalAddress"
             android:textColor="@color/colorPrimaryDark"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginHorizontal="13dp">
@@ -118,10 +118,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="22sp"
-            android:hint="change Address"
+            android:hint="@string/dashboard_address"
             android:layout_weight="0.05"
             android:textAlignment="center"
-            android:inputType="number"
+            android:inputType="textPersonName"
             android:textColor="@color/colorPrimaryDark"
             android:fontFamily="@font/poppins_medium"
             android:layout_marginHorizontal="13dp">
@@ -143,7 +143,7 @@
             android:fontFamily="@font/poppins_bold"
             android:textAllCaps="false"
             android:paddingHorizontal="20dp"
-            android:text="Save Changes">
+            android:text="@string/save_changes_btn">
 
         </Button>
 

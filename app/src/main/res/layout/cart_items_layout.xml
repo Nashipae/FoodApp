@@ -94,7 +94,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:textStyle="bold"
                     android:textColor="@color/colorPrimary"
-                    android:text="Remove Item"
+                    android:text="@string/cartRemoveBtn"
                     />
             </LinearLayout>
 

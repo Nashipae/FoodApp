@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ddeddd"
+    android:background="#ddede8"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
 
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:layout_weight="0.05"
+        android:layout_weight="0"
         android:scrollbars="none">
 
 
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="0.02"
+        android:layout_weight="0.01"
 
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="13dp"
@@ -101,7 +101,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="75dp"
             android:layout_marginRight="60dp"
-            android:text="All"
+            android:text="@string/all_category"
             android:layout_weight="0"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
@@ -112,15 +112,16 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_weight="0.75"
+            android:layout_weight="0.7"
             android:layout_height="wrap_content">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_weight="0.7"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="2"
         app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"

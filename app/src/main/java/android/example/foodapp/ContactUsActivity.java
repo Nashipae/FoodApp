@@ -26,18 +26,17 @@ public class ContactUsActivity extends AppCompatActivity {
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phone="9041118938";
+                String phone="9575469064";
                 String s="tel:" +phone;
-                Intent intent =new Intent(Intent.ACTION_CALL);
+                Intent intent =new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse(s));
+                try {
+                    startActivity(intent);
+                } catch (Exception e) {
+
+                }
                 startActivity(intent);
             }
         });
-
-
-
-
-
-
     }
 }

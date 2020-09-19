@@ -112,6 +112,18 @@
     <string name="nav_logout">लॉग आउट</string>
 
 
+    <string name="delivery_history_text">डिलीवरी इतिहास</string>
+    <string name="order_date_text">आदेश तारीख</string>
+    <string name="delivery_date_text">डिलीवरी तारीख</string>
+    <string name="status_text">स्थिति</string>
+    <string name="quantity_text">मात्रा</string>
+    <string name="price_per_item_text">मूल्य प्रति आइटम</string>
+
+
+    <string name="all_category">समस्त</string>
+
+
+
 
 
 
