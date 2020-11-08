@@ -23,7 +23,7 @@
 
     <string name="registerBtn">रजिस्टर करें</string>
     <string name="username">नाम दर्ज</string>
-    <string name="city">शहर का नाम दर्ज करें</string>
+    <string name="city">गाँव का नाम दर्ज करें</string>
     <string name="pincode">पिन कोड दर्ज करें</string>
     <string name="passwordConfirm">पासवर्ड की पुष्टि कीजिये</string>
     <string name="doneBtn">आगे बढ़ें</string>
@@ -46,7 +46,7 @@
 
 
     <string name="contact_us_text">संपर्क करें</string>
-    <string name="My_Contact_Text">मेरे संपर्क</string>
+    <string name="My_Contact_Text">कस्टमर केयर नंबर</string>
 
 
     <string name="select_lang_text">भाषा का चयन करें</string>
@@ -74,7 +74,7 @@
 
     <string name="person_info_text">आपकी जानकारी</string>
     <string name="info_fullName">आपका पूरा नाम</string>
-    <string name="info_address">अपना पता दर्ज करें</string>
+    <string name="info_address">गाँव का नाम दर्ज करें</string>
     <string name="info_country">देश</string>
 
 
