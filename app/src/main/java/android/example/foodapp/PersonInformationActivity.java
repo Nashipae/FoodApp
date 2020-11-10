@@ -54,8 +54,8 @@ public class PersonInformationActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
                 fullName.setText(user.getUsername());
-                userAddress.setText(user.getAddress());
-                userCountry.setText("India");
+                userAddress.setText("");
+                userCountry.setText("");
             }
 
             @Override

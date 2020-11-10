@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">फूड ऐप</string>
+    <string name="app_name">मैदबेरी फार्म</string>
     <string name="welcomeText">स्वागत हे</string>
     <string name="select_language_text">भाषा का चयन करें</string>
     <string name="Hindi">हिन्दी</string>

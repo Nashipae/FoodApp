@@ -25,7 +25,7 @@
             <ImageView
                 android:id="@+id/cartImage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="150dp"
                 android:maxHeight="150dp"

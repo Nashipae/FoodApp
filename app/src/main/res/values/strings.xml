@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food App</string>
+    <string name="app_name">Meadberry Farms</string>
     <string name="welcomeText">WELCOME</string>
     <string name="select_language_text">Select The Language</string>
     <string name="Hindi">Hindi</string>

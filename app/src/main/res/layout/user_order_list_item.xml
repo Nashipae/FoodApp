@@ -50,8 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:fontFamily="@font/poppins_medium"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_light"
             android:textColor="#FFFFFF"
             android:text="description"/>
 
@@ -64,7 +64,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="@string/order_date_text" />
@@ -73,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="Order Date" />
@@ -88,7 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="@string/delivery_date_text" />
@@ -97,7 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="Delivery Date" />
@@ -112,7 +112,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="@string/status_text" />
@@ -121,7 +121,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="Status" />
@@ -136,7 +136,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="@string/quantity_text" />
@@ -145,7 +145,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="Quantity" />
@@ -160,7 +160,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="@string/price_per_item_text" />
@@ -169,7 +169,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="Price" />
@@ -183,7 +183,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="@string/total_price_text" />
@@ -192,7 +192,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="#FFFFFF"
                 android:text="Total" />

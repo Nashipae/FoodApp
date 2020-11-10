@@ -78,17 +78,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/selectingLanguage" />
 
-            <RadioButton
-                android:id="@+id/English"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:buttonTint="@color/colorPrimary"
-                android:layoutDirection="rtl"
-                android:paddingVertical="10dp"
-                android:paddingLeft="23dp"
-                android:text="@string/online_payment_option"
-                android:fontFamily="@font/poppins_medium"
-                android:textSize="23sp" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/English"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:buttonTint="@color/colorPrimary"-->
+<!--                android:layoutDirection="rtl"-->
+<!--                android:paddingVertical="10dp"-->
+<!--                android:paddingLeft="23dp"-->
+<!--                android:text="@string/online_payment_option"-->
+<!--                android:fontFamily="@font/poppins_medium"-->
+<!--                android:textSize="23sp" />-->
         </RadioGroup>
 
         <TableRow
