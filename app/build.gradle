@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "android.example.foodapp"
+        applicationId "com.meadberryfarms.foodapp"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

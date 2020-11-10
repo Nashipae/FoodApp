@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#cae6ca"
-    tools:context=".PersonInformationActivity">
+    tools:context="Meadberry_Farms.example.foodapp.PersonInformationActivity">
 
     <ScrollView
         android:layout_width="match_parent"

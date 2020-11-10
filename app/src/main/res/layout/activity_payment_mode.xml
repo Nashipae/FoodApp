@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#cae6ca"
-    tools:context=".PaymentModeActivity">
+    tools:context="Meadberry_Farms.example.foodapp.PaymentModeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorbackground"
-    tools:context=".UserDeliveryHistoryActivity">
+    tools:context="Meadberry_Farms.example.foodapp.UserDeliveryHistoryActivity">
 
     <TextView
         android:id="@+id/delivery_history_text"
