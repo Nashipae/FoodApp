@@ -3,7 +3,7 @@ package Meadberry_Farms.example.foodapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;

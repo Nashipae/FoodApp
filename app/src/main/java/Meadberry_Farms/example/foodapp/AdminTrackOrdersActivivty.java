@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import Meadberry_Farms.example.foodapp.Model.Order;
 
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 
 import Meadberry_Farms.example.foodapp.viewHolder.AdminActiveOrdersViewHolder;
 

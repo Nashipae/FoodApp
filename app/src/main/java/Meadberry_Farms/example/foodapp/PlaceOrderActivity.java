@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import Meadberry_Farms.example.foodapp.Model.Cart;
 
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 
 import Meadberry_Farms.example.foodapp.viewHolder.OrderViewHolder;
 import android.net.Uri;

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import Meadberry_Farms.example.foodapp.Model.Cart;
 
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 
 import Meadberry_Farms.example.foodapp.viewHolder.CartViewHolder;
 import android.os.Bundle;

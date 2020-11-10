@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 
 public class HomeFragment extends Fragment {
 

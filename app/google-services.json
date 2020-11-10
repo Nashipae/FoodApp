@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "336219460300",
-    "firebase_url": "https://foodapp-d3a6f.firebaseio.com",
-    "project_id": "foodapp-d3a6f",
-    "storage_bucket": "foodapp-d3a6f.appspot.com"
+    "project_number": "172955666912",
+    "firebase_url": "https://foodapp-6ec15.firebaseio.com",
+    "project_id": "foodapp-6ec15",
+    "storage_bucket": "foodapp-6ec15.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:336219460300:android:1b831820cf195ab1fba869",
+        "mobilesdk_app_id": "1:172955666912:android:0e3325470ba81f54078385",
         "android_client_info": {
-          "package_name": "android.example.foodapp"
+          "package_name": "com.meadberryfarms.foodapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "336219460300-e8viqljohrcc9rrm10ng88esvnvqanmq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "android.example.foodapp",
-            "certificate_hash": "3cba6c0c306fc49dd56daa49fdbbe427c8a84bc9"
-          }
-        },
-        {
-          "client_id": "336219460300-jk7io667rhn300ki8g9vojjjuti00aug.apps.googleusercontent.com",
+          "client_id": "172955666912-5id2j797gi7kf41sqb3opvnpslirnls6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBYSpMjA8vvrztz9LuqzLi70gxFcsGf5-Y"
+          "current_key": "AIzaSyCTb1Qh6tcpWPXVDjbjm9epk_q4lyicoZs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "336219460300-jk7io667rhn300ki8g9vojjjuti00aug.apps.googleusercontent.com",
+              "client_id": "172955666912-5id2j797gi7kf41sqb3opvnpslirnls6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

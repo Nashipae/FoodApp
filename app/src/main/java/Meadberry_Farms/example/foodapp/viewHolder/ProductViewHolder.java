@@ -2,7 +2,7 @@ package Meadberry_Farms.example.foodapp.viewHolder;
 
 
 import Meadberry_Farms.example.foodapp.Interface.ItemClickListener;
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;

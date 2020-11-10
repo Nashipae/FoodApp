@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 
 import Meadberry_Farms.example.foodapp.Model.Users;
 
-import android.example.foodapp.R;
+import com.meadberryfarms.foodapp.R;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
