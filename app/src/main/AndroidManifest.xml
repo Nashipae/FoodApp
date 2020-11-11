@@ -20,42 +20,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="Meadberry_Farms.example.foodapp.AdminChooseActivity"></activity>
+        <activity android:name=".AdminChooseActivity"></activity>
 
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
 
-        <activity android:name="Meadberry_Farms.example.foodapp.AdminTrackOrdersActivivty" />
-        <activity android:name="Meadberry_Farms.example.foodapp.UserDeliveryHistoryActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.ContactUsActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.DashboardActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.AdminProductAddActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.AdminProductTypeActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.AdminLoginActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.SelectLanguageActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.OrderPlacedActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.PlaceOrderActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.PaymentModeActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.PersonInformationActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.TotalItemsActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.ProductDescriptionActivity" />
+        <activity android:name=".AdminTrackOrdersActivivty" />
+        <activity android:name=".UserDeliveryHistoryActivity" />
+        <activity android:name=".ContactUsActivity" />
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".AdminProductAddActivity" />
+        <activity android:name=".AdminProductTypeActivity" />
+        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".SelectLanguageActivity" />
+        <activity android:name=".OrderPlacedActivity" />
+        <activity android:name=".PlaceOrderActivity" />
+        <activity android:name=".PaymentModeActivity" />
+        <activity android:name=".PersonInformationActivity" />
+        <activity android:name=".TotalItemsActivity" />
+        <activity android:name=".ProductDescriptionActivity" />
         <activity
-            android:name="Meadberry_Farms.example.foodapp.HomeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="Meadberry_Farms.example.foodapp.NewPasswordActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.EnterOTPActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.ForgotPasswordActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.RegisterActivity" />
-        <activity android:name="Meadberry_Farms.example.foodapp.MainActivity">
+        <activity android:name=".NewPasswordActivity" />
+        <activity android:name=".EnterOTPActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Meadberry_Farms.example.foodapp.LoginActivity" />
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>
