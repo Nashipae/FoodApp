@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class AdminChooseActivity extends AppCompatActivity {
 
-    private Button Add,Order;
+    private Button Add,Order, Delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class AdminChooseActivity extends AppCompatActivity {
 
         Add = findViewById(R.id.addProduct);
         Order = findViewById(R.id.editOrders);
+        Delete = findViewById(R.id.deleteProducts);
 
         Add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +32,14 @@ public class AdminChooseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminChooseActivity.this, AdminTrackOrdersActivivty.class);
+                startActivity(intent);
+            }
+        });
+
+        Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminChooseActivity.this, AdminProductDelete.class);
                 startActivity(intent);
             }
         });

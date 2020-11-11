@@ -20,7 +20,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminChooseActivity"></activity>
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".AdminProductDelete" />
+        <activity android:name=".AdminChooseActivity" />
 
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
